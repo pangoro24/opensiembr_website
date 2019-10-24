@@ -1,1 +1,8 @@
+# CONFIG CODEIGNITER
 application/config/config.php
+
+# SFTP
+sftp-config.json
+
+# NODE MODULES
+node_modules

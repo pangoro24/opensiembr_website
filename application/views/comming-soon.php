@@ -35,8 +35,12 @@
 		        		</v-col>
 		        		<v-col cols="12" md="4"></v-col>
 		        		<v-col cols="12">
-		        			<v-icon color="#fff">mdi-facebook</v-icon>
-		        			<v-icon color="#fff">mdi-twitter</v-icon>
+		        			<v-btn icon href="https://www.facebook.com/opensiembro-112360060188162/" target="_blank">
+		        				<v-icon color="#fff">mdi-facebook</v-icon>
+		        			</v-btn>
+		        			<v-btn icon href="https://www.instagram.com/opensiembro/" target="_blank">
+		        				<v-icon href="#" color="#fff">mdi-instagram</v-icon>
+		        			</v-btn>
 		        			<v-icon color="#fff">mdi-whatsapp</v-icon>
 		        		</v-col>
 		        		<v-col cols="12">

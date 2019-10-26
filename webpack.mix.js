@@ -14,3 +14,7 @@ const mix = require('laravel-mix');
 // Comming Soon
 mix.js('./application/resources/comming-soon/js/app.js', './assets/comming-soon/app.js')
    .sass('./application/resources/comming-soon/sass/app.scss', './assets/comming-soon/app.css');
+
+// Front-End
+mix.js('./application/resources/front/js/app.js', './assets/front/app.js')
+   .sass('./application/resources/front/sass/app.scss', './assets/front/app.css');

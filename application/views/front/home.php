@@ -250,16 +250,13 @@
 			</v-col>
 			<v-col cols="12" md="6">
 				<h3 class="mb-3">Nuestras redes sociales</h3>
-				<v-btn tile large color="#000" icon>
+				<v-btn href="https://www.facebook.com/opensiembro-112360060188162/" target="blank" tile large color="#000" icon>
 			      	<v-icon>mdi-facebook</v-icon>
 			    </v-btn>
-			    <v-btn tile large color="#000" icon>
-			      	<v-icon>mdi-twitter</v-icon>
-			    </v-btn>
-			    <v-btn tile large color="#000" icon>
+			    <v-btn href="https://www.instagram.com/opensiembro/" target="blank" tile large color="#000" icon>
 			      	<v-icon>mdi-instagram</v-icon>
 			    </v-btn>
-			    <v-btn tile large color="#000" icon>
+			    <v-btn href="" tile large color="#000" icon>
 			      	<v-icon>mdi-whatsapp</v-icon>
 			    </v-btn>
 			</v-col>

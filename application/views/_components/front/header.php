@@ -21,7 +21,7 @@
 
 		    <template v-if="$vuetify.breakpoint.smAndUp">
 
-		    	<v-menu :close-on-content-click="false" :nudge-width="200" offset-y>
+		    	<v-menu :close-on-content-click="false" :nudge-width="200" offset-y open-on-hover transition="slide-x-transition">
 				    <template v-slot:activator="{ on }">
 				        <v-btn icon v-on="on">
 				            <v-icon>mdi-shopping</v-icon>
@@ -30,12 +30,12 @@
 
 				    <v-card>
 				        <v-card-text>
-				        	<p>Carrito de Compra</p>
+				        	<p>El carrito esta vacio</p>
 				        </v-card-text>
 				    </v-card>
 				</v-menu>
 		        
-		        <v-menu :close-on-content-click="false" :nudge-width="200" offset-y>
+		        <v-menu :close-on-content-click="false" :nudge-width="200" offset-y transition="slide-x-transition">
 				    <template v-slot:activator="{ on }">
 				    	<v-btn icon v-on="on">
 				            <v-icon>mdi-account-circle-outline</v-icon>
@@ -45,15 +45,31 @@
 				    <v-card>
 				        <v-card-text>
 				        	<p>INICIAR SESIÓN</p>
-				        	<v-text-field label="Regular"></v-text-field>
-				        	<v-text-field label="Regular"></v-text-field>
+				        	<v-text-field class="mb-2" solo prepend-inner-icon="mdi-account-circle-outline" label="Correo Electrónico" hide-details="true"></v-text-field>
+				        	<v-text-field class="mb-2" solo prepend-inner-icon="mdi-lock-open-outline" label="Contraseña" hide-details="true"></v-text-field>
+				        	<v-btn small color="primary">Iniciar Sesión</v-btn>
+				        	<v-btn small color="primary">Registrarse</v-btn>
 				        </v-card-text>
 				    </v-card>
 				</v-menu>
 
-				<v-btn icon>
-		            <v-icon>mdi-web</v-icon>
-		        </v-btn>
+				<v-menu :close-on-content-click="false" :nudge-width="200" offset-y transition="slide-x-transition">
+				    <template v-slot:activator="{ on }">
+				    	<v-btn icon v-on="on">
+				            <v-icon>mdi-web</v-icon>
+				        </v-btn>
+				    </template>
+
+				    <v-card>
+				        <v-card-text>
+				        	<p class="mb-0">Idioma</p>
+				        	<v-select prepend-inner-icon="mdi-translate" solo hide-details="true"></v-select>
+				        	<p class="mb-0">Moneda</p>
+				        	<v-select prepend-inner-icon="mdi-coin-outline" solo hide-details="true"></v-select>
+				        </v-card-text>
+				    </v-card>
+				</v-menu>
+
 		    </template>
 		</v-toolbar>
 

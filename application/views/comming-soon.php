@@ -25,8 +25,9 @@
 		        <v-container class="fill-height">
 		        	<v-row>
 		        		<v-col cols="12">
-		        			<p class="display-2 font-weight-black">OpenSiembro</p>
-		        			<p>Estamos trabajando duro para mejorar nuestro sitio web y estaremos listos para lanzar después</p>
+		        			<p class="display-2 font-weight-black">Open Siembro</p>
+		        			<p class="title">Sistema inteligente de bajo costo para control de riego y monitoreo de siembro</p>
+		        			<p>Estamos trabajando en nuestro sitio web y estará listo pronto. Suscríbete aquí para recibir notificaciones, boletines y <br> noticias acerca del proyecto.</p>
 		        		</v-col>
 		        		<v-col cols="12" md="4"></v-col>
 		        		<v-col cols="12" md="4">
@@ -39,12 +40,14 @@
 		        				<v-icon color="#fff">mdi-facebook</v-icon>
 		        			</v-btn>
 		        			<v-btn icon href="https://www.instagram.com/opensiembro/" target="_blank">
-		        				<v-icon href="#" color="#fff">mdi-instagram</v-icon>
+		        				<v-icon color="#fff">mdi-instagram</v-icon>
 		        			</v-btn>
-		        			<v-icon color="#fff">mdi-whatsapp</v-icon>
+		        			<v-btn icon href="https://wa.me/50766865816" target="_blank">
+		        				<v-icon color="#fff">mdi-whatsapp</v-icon>
+		        			</v-btn>
 		        		</v-col>
 		        		<v-col cols="12">
-		        			<p>© OpenSiembro | Todos los Derechos Reservados 2019</p>
+		        			<p>© Open Siembro | Todos los Derechos Reservados 2019</p>
 		        		</v-col>
 		        	</v-row>
 		        </v-container>

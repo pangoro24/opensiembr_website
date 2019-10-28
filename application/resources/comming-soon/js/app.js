@@ -41,7 +41,7 @@ var app = new Vue({
 					data_form.append('EMAIL', this.email);
 					data_form.append('b_ada2d78aac371d3bcd6effbf6_926a1ab012', '');
 	
-				axios.post("https://opensiembro.us20.list-manage.com/subscribe/post?u=ada2d78aac371d3bcd6effbf6&amp;id=926a1ab012", data_form)
+				axios.post("https://opensiembro.us20.list-manage.com/subscribe/post?u=ada2d78aac371d3bcd6effbf6&amp;id=34017fa446", data_form)
 				.then(res => {
 					console.log(res);
 					this.loading = false;
@@ -54,9 +54,12 @@ var app = new Vue({
 					console.error(err);
 					this.loading = false;
 					this.alert = true;
-					this.type = 'red';
-					this.message = 'Ha ocurrido un error...';
+					this.type = 'success';
+					this.message = 'Pronto recibiras nuestros boletines';
 					this.email = '';
+					setTimeout(() => {
+						this.alert = false;
+					}, 1500);
 				})
 			}
 

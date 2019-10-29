@@ -4,5 +4,8 @@ application/config/config.php
 # SFTP
 sftp-config.json
 
+# WEB STORM
+.idea/
+
 # NODE MODULES
 node_modules

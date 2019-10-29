@@ -1,7 +1,7 @@
 <v-row>
 	<v-col cols="12" class="d-none d-sm-none d-md-flex">
 
-		<v-toolbar :flat="true" class="header-menu">
+		<v-toolbar :flat="true" dark class="header-menu">
 		    <v-toolbar-title>
 		    	<a href="<?= base_url('/') ?>" title="">
 		    		<v-img width="190" src="/assets/img/logo.png" lazy-src="/assets/img/logo.png"></v-img>
@@ -11,12 +11,12 @@
 		    <v-spacer></v-spacer>
 
 		    <v-toolbar-items>
-		        <v-btn text href="<?= base_url('/') ?>">Inicio</v-btn>
-		        <v-btn text href="<?= base_url('device') ?>">Dispositivo</v-btn>
-		        <v-btn text href="<?= base_url('app') ?>">App</v-btn>
-		        <v-btn text href="<?= base_url('how-to-work') ?>">Como Funciona</v-btn>
-		        <v-btn text href="<?= base_url('blog') ?>">Blog</v-btn>
-		        <v-btn text href="<?= base_url('help') ?>">Ayuda</v-btn>
+		        <v-btn text class="font-weight-bold" href="<?= base_url('/') ?>">Inicio</v-btn>
+		        <v-btn text class="font-weight-bold" href="<?= base_url('device') ?>">Dispositivo</v-btn>
+		        <v-btn text class="font-weight-bold" href="<?= base_url('app') ?>">App</v-btn>
+		        <v-btn text class="font-weight-bold" href="<?= base_url('how-to-work') ?>">Como Funciona</v-btn>
+		        <v-btn text class="font-weight-bold" href="<?= base_url('blog') ?>">Blog</v-btn>
+		        <v-btn text class="font-weight-bold" href="<?= base_url('help') ?>">Ayuda</v-btn>
 		    </v-toolbar-items>
 
 		    <template v-if="$vuetify.breakpoint.smAndUp">

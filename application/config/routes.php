@@ -7,6 +7,6 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['device'] = 'front/device';
 $route['app'] = 'front/app';
-$route['how-to-work'] = 'front/how-to-work';
+$route['how-to-work'] = 'front/how_to_work';
 $route['blog'] = 'front/blog';
 $route['help'] = 'front/help';

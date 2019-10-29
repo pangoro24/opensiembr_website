@@ -25,6 +25,9 @@
 				<?php $this->load->view('_components/front/slide-left'); ?>
 		      	<?php $this->load->view('front/'.$section); ?>
 		      	<?php $this->load->view('_components/front/footer'); ?>
+		      	<v-btn v-scroll="onScroll" v-show="fab" fab dark fixed bottom right color="primary" @click="toTop">
+				    <v-icon>mdi-arrow-up-thick</v-icon>
+				</v-btn>
 			</v-content>
 	    </v-app>
 	</div>

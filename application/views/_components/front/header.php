@@ -76,10 +76,10 @@
 	</v-col>
 
 	<v-col class="d-flex d-sm-flex d-md-none" >
-		<v-app-bar :flat="true" class="header-menu">
+		<v-app-bar :flat="true" dark class="header-menu">
 		    <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-		    <v-toolbar-title>OpenSiembro</v-toolbar-title>
+		    <v-toolbar-title>Open Siembro</v-toolbar-title>
 
 		    <v-spacer></v-spacer>
 

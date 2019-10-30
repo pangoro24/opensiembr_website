@@ -8,6 +8,7 @@
 	<v-container>
 		<v-row>
 			<v-col cols="12" md="6" class="mt-12">
+				<h2 class="mb-5">Step 1</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -31,6 +32,7 @@
 				<v-img src="https://picsum.photos/200/300" lazy-src="https://picsum.photos/200/300" max-width="100%" max-height="300"></v-img>
 			</v-col>
 			<v-col cols="12" md="6" class="mt-12">
+				<h2 class="mb-5">Step 2</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -48,6 +50,7 @@
 	<v-container>
 		<v-row>
 			<v-col cols="12" md="6" class="mt-12">
+				<h2 class="mb-5">Step 3</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

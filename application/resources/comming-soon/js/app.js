@@ -57,9 +57,6 @@ var app = new Vue({
 					this.type = 'success';
 					this.message = 'Pronto recibiras nuestros boletines';
 					this.email = '';
-					setTimeout(() => {
-						this.alert = false;
-					}, 1500);
 				})
 			}
 

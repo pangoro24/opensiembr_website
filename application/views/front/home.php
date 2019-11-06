@@ -1,6 +1,31 @@
 <v-content class="home-slider">
 	<v-container>
 		<?php $this->load->view('_components/front/header'); ?>
+		<section class="text-center home-slider-content">
+			<h1 data-aos="flip-up">Bienvenido a Open Siembro</h1>
+			<p data-aos="flip-up">Sistema inteligente de bajo costo para control de riego y monitoreo de siembro</p>
+			<v-btn data-aos="fade" class="mx-2" fab dark large color="red" @click="overlay = !overlay">
+			  	<v-icon dark>mdi-play</v-icon>
+			</v-btn>
+			<section class="mt-8">
+				<v-btn data-aos="flip-up" href="https://www.facebook.com/opensiembro-112360060188162/" target="blank" tile large color="#fff" icon>
+					<v-icon>mdi-facebook</v-icon>
+				</v-btn>
+				<v-btn data-aos="flip-up" href="https://www.instagram.com/opensiembro/" target="blank" tile large color="#fff" icon>
+					<v-icon>mdi-instagram</v-icon>
+				</v-btn>
+				<v-btn data-aos="flip-up" href="https://wa.me/50766865816" target="_blank" tile large color="#fff" icon>
+					<v-icon>mdi-whatsapp</v-icon>
+				</v-btn>
+			</section>
+			<v-overlay :value="overlay">
+				<v-btn icon @click="overlay = false">
+					<v-icon>mdi-close</v-icon>
+				</v-btn>
+				<br> <br>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/H4p6njjPV_o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</v-overlay>
+		</section>
 	</v-container>
 </v-content>
 
@@ -8,13 +33,12 @@
 	<v-container>
 		<v-row class="text-center">
 			<v-col cols="12">
-				<h2>DISPOSITIVO</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+				<h2 data-aos="fade-up">NUESTRO DISPOSITIVO</h2>
 			</v-col>
 		</v-row>
 		<v-row>
 			<v-col cols="12">
-				
+				<v-img data-aos="fade-up" class="app" width="100%" src="/assets/img/device-home.png">
 			</v-col>
 		</v-row>
 	</v-container>
@@ -24,8 +48,7 @@
 	<v-container>
 		<v-row class="text-center">
 			<v-col cols="12">
-				<h2>APLICACIÓN MÓVIL</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+				<h2 data-aos="fade-up" data-aos-delay="500">BENEFICIOS DEL SISTEMA OPEN SIEMBRO</h2>
 			</v-col>
 		</v-row>
 		<v-row>
@@ -33,71 +56,77 @@
 				<v-hover v-slot:default="{ hover }">
 				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
 					    <v-card-text class="text-right">
-					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-anchor</v-icon>
-					    	<h3 :class="hover ? 'blue--text' : '' ">Title Card</h3>
-					    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					        	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					        	quis nostrud exercitation ullamco laboris nisi</p>
+					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-bullseye-arrow</v-icon>
+					    	<h3 :class="hover ? 'blue--text' : '' ">Todo bajo control desde cualquier parte y en cualquier todo momento</h3>
 					    </v-card-text>
 				    </v-card>
 				</v-hover>
 				<v-hover v-slot:default="{ hover }">
 				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
 					    <v-card-text class="text-right">
-					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-anchor</v-icon>
-					    	<h3 :class="hover ? 'blue--text' : '' ">Title Card</h3>
-					    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					        	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					        	quis nostrud exercitation ullamco laboris nisi</p>
+					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-coin-outline</v-icon>
+					    	<h3 :class="hover ? 'blue--text' : '' ">Precio accesible</h3>
 					    </v-card-text>
 				    </v-card>
 				</v-hover>
 				<v-hover v-slot:default="{ hover }">
 				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
 					    <v-card-text class="text-right">
-					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-anchor</v-icon>
-					    	<h3 :class="hover ? 'blue--text' : '' ">Title Card</h3>
-					    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					        	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					        	quis nostrud exercitation ullamco laboris nisi</p>
+					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-buffer</v-icon>
+					    	<h3 :class="hover ? 'blue--text' : '' ">Fácil y rápida instalación</h3>
+					    </v-card-text>
+				    </v-card>
+				</v-hover>
+				<v-hover v-slot:default="{ hover }">
+				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
+					    <v-card-text class="text-right">
+					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-cellphone-link</v-icon>
+					    	<h3 :class="hover ? 'blue--text' : '' ">
+								Adaptable. Puede funcionar con internet wifi, 3g o Sigfox dependiendo de la ubicación de tu cultivo.
+							</h3>
 					    </v-card-text>
 				    </v-card>
 				</v-hover>
 			</v-col>
-			<v-col cols="12" md="4" class="text-center">
-				2
+			<v-col cols="12" md="4">
+				<div class="text-center">
+					<v-img data-aos="fade-up" data-aos-delay="700" class="app" width="320" src="/assets/img/app.png" lazy-src="/assets/img/app.png">
+				</div>
 			</v-col>
 			<v-col cols="12" md="4">
 				<v-hover v-slot:default="{ hover }">
 				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
 					    <v-card-text class="text-right">
-					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-anchor</v-icon>
-					    	<h3 :class="hover ? 'blue--text' : '' ">Title Card</h3>
-					    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					        	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					        	quis nostrud exercitation ullamco laboris nisi</p>
+					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-file-document-box-check-outline</v-icon>
+					    	<h3 :class="hover ? 'blue--text' : '' ">
+								Amplia información de diferentes tipos de plantas
+							</h3>
 					    </v-card-text>
 				    </v-card>
 				</v-hover>
 				<v-hover v-slot:default="{ hover }">
 				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
 					    <v-card-text class="text-right">
-					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-anchor</v-icon>
-					    	<h3 :class="hover ? 'blue--text' : '' ">Title Card</h3>
-					    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					        	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					        	quis nostrud exercitation ullamco laboris nisi</p>
+					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-numeric-0-circle-outline</v-icon>
+					    	<h3 :class="hover ? 'blue--text' : '' ">100% Gratuita</h3>
 					    </v-card-text>
 				    </v-card>
 				</v-hover>
 				<v-hover v-slot:default="{ hover }">
 				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
 					    <v-card-text class="text-right">
-					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-anchor</v-icon>
-					    	<h3 :class="hover ? 'blue--text' : '' ">Title Card</h3>
-					    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					        	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					        	quis nostrud exercitation ullamco laboris nisi</p>
+					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-gesture-spread</v-icon>
+					    	<h3 :class="hover ? 'blue--text' : '' ">Intuitiva y amigable para el usuario</h3>
+					    </v-card-text>
+				    </v-card>
+				</v-hover>
+				<v-hover v-slot:default="{ hover }">
+				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
+					    <v-card-text class="text-right">
+					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-math-compass</v-icon>
+					    	<h3 :class="hover ? 'blue--text' : '' ">
+								Personalizable al tipo de cultivo que siembras y al sistema de riego que usas
+							</h3>
 					    </v-card-text>
 				    </v-card>
 				</v-hover>
@@ -110,82 +139,57 @@
 	<v-container>
 		<v-row class="text-center">
 			<v-col cols="12">
-				<h2>BLOG</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+				<h2 data-aos="fade-up" data-aos-delay="500">BLOG</h2>
 			</v-col>
 		</v-row>
 		<v-row>
 			<v-col cols="12" md="4">
-				<v-card class="mx-auto" max-width="400">
+				<v-card data-aos="fade-up" data-aos-delay="500" class="mx-auto" max-width="400">
 				    <v-img class="white--text align-end" height="200px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
-				        <v-card-title>Top 10 Australian beaches</v-card-title>
+				        <v-card-title>¿Quienes realmente están detrás de open siembro?</v-card-title>
 				    </v-img>
 
-				    <v-card-subtitle class="pb-0">Number 10</v-card-subtitle>
-
 				    <v-card-text class="text--primary">
-				        <div>Whitehaven Beach</div>
-
-				        <div>Whitsunday Island, Whitsunday Islands</div>
+						<p>Somos un grupo de profesionales panameños comprometidos con la agricultura. Queremos poder al servicio del sector agropecuario nuestros conocimientos tecnológicos y ayudar a</p>
 				    </v-card-text>
 
 				    <v-card-actions>
 				        <v-btn color="orange" text>
-				            Share
-				        </v-btn>
-
-				        <v-btn color="orange" text>
-				            Explore
+				            Ver
 				        </v-btn>
 				    </v-card-actions>
 				</v-card>
 			</v-col>
 			<v-col cols="12" md="4">
-				<v-card class="mx-auto" max-width="400">
+				<v-card data-aos="fade-up" data-aos-delay="700" class="mx-auto" max-width="400">
 				    <v-img class="white--text align-end" height="200px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
-				        <v-card-title>Top 10 Australian beaches</v-card-title>
+				        <v-card-title>¿open siembro, de la idea al producto?</v-card-title>
 				    </v-img>
 
-				    <v-card-subtitle class="pb-0">Number 10</v-card-subtitle>
-
 				    <v-card-text class="text--primary">
-				        <div>Whitehaven Beach</div>
-
-				        <div>Whitsunday Island, Whitsunday Islands</div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad architecto commodi cum earum eos facilis, ipsum quae quasi rem rerum. Esse ex impedit numquam ratione</p>
 				    </v-card-text>
 
 				    <v-card-actions>
 				        <v-btn color="orange" text>
-				            Share
-				        </v-btn>
-
-				        <v-btn color="orange" text>
-				            Explore
+				            Ver
 				        </v-btn>
 				    </v-card-actions>
 				</v-card>
 			</v-col>
 			<v-col cols="12" md="4">
-				<v-card class="mx-auto" max-width="400">
+				<v-card data-aos="fade-up" data-aos-delay="900" class="mx-auto" max-width="400">
 				    <v-img class="white--text align-end" height="200px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
-				        <v-card-title>Top 10 Australian beaches</v-card-title>
+				        <v-card-title>Misión y visión del proyecto</v-card-title>
 				    </v-img>
 
-				    <v-card-subtitle class="pb-0">Number 10</v-card-subtitle>
-
 				    <v-card-text class="text--primary">
-				        <div>Whitehaven Beach</div>
-
-				        <div>Whitsunday Island, Whitsunday Islands</div>
+						<p>Los invitamos a descubrir open Siembro, una innovadora plataforma que democratiza el acceso al conocimiento mediante contenido técnico, educativo...</p>
 				    </v-card-text>
 
 				    <v-card-actions>
 				        <v-btn color="orange" text>
-				            Share
-				        </v-btn>
-
-				        <v-btn color="orange" text>
-				            Explore
+				            Ver
 				        </v-btn>
 				    </v-card-actions>
 				</v-card>
@@ -197,42 +201,71 @@
 <v-content class="home-ask">
 	<v-container>
 		<v-row class="text-center">
-			<v-col cols="12">
-				<h2>PREGUNTAS FRECUENTES</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+			<v-col cols="12" class="mt-12 mb-8">
+				<h1 data-aos="fade-up" data-aos-delay="500">PREGUNTAS FRECUENTES</h1>
 			</v-col>
 		</v-row>
 		<v-row>
 			<v-col cols="12">
-				<v-expansion-panels>
+				<v-expansion-panels data-aos="fade-up" data-aos-delay="700">
 				    <v-expansion-panel>
-				        <v-expansion-panel-header>Item</v-expansion-panel-header>
+				        <v-expansion-panel-header>¿Qué realmente ofrecemos?</v-expansion-panel-header>
 				        <v-expansion-panel-content>
-				            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				            Ofrecemos un Sistema inteligente de bajo costo apoyado por una app como guía de agricultura, siembro, riego y  monitoreo.
 				        </v-expansion-panel-content>
 				    </v-expansion-panel>
 				    <v-expansion-panel>
-				        <v-expansion-panel-header>Item</v-expansion-panel-header>
+				        <v-expansion-panel-header>¿Para quién es?</v-expansion-panel-header>
 				        <v-expansion-panel-content>
-				            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				            Nuestros clientes son agricultores de pequeña, mediana y grande escala y personas que desean incursionar en el sector agrícola sin previa experiencia.
 				        </v-expansion-panel-content>
 				    </v-expansion-panel>
 				    <v-expansion-panel>
-				        <v-expansion-panel-header>Item</v-expansion-panel-header>
+				        <v-expansion-panel-header>¿Es la app totalmente gratuita?</v-expansion-panel-header>
 				        <v-expansion-panel-content>
-				            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				            Ofreceremos la app sin costo alguno con el fin de apoyar al agricultor para obtener un cultivo eficiente.
 				        </v-expansion-panel-content>
 				    </v-expansion-panel>
 				    <v-expansion-panel>
-				        <v-expansion-panel-header>Item</v-expansion-panel-header>
+				        <v-expansion-panel-header>¿El dispositivo necesita internet para funcionar?</v-expansion-panel-header>
 				        <v-expansion-panel-content>
-				            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				            No propiamente. El dispositivo puede ejecutar sus tareas independiente de si está o no conectado al internet. El internet es uno de los medios para transmitir los datos a la app pero contamos con medios alternativos de transferencia de datos.
 				        </v-expansion-panel-content>
 				    </v-expansion-panel>
 				    <v-expansion-panel>
-				        <v-expansion-panel-header>Item</v-expansion-panel-header>
+				        <v-expansion-panel-header>¿Tienen un local físico?</v-expansion-panel-header>
 				        <v-expansion-panel-content>
-				            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				            open Siembro es una tienda 100% online. Realizamos envíos a nivel nacional por medio de agencias de envíos.
+				        </v-expansion-panel-content>
+				    </v-expansion-panel>
+					<v-expansion-panel>
+				        <v-expansion-panel-header>¿Dónde puedo comprar el dispositivo?</v-expansion-panel-header>
+				        <v-expansion-panel-content>
+				            Puede obtener el dispositivo  por medio de nuestra página web y nos puede contactar a través de nuestro email, ventas@opensiembro.com y redes sociales.
+				        </v-expansion-panel-content>
+				    </v-expansion-panel>
+					<v-expansion-panel>
+				        <v-expansion-panel-header>¿Cuáles son las formas de pago?</v-expansion-panel-header>
+				        <v-expansion-panel-content>
+				            Trabajamos al contado por medio de depósito o transferencia bancaria.
+				        </v-expansion-panel-content>
+				    </v-expansion-panel>
+					<v-expansion-panel>
+				        <v-expansion-panel-header>¿Cuáles son los medios de envíos?</v-expansion-panel-header>
+				        <v-expansion-panel-content>
+				            Los medios de envíos son agencias de envío que laboran en Panamá, como Ferguson, Uno Express, Donaldo Guerra, etc. Pueden contactarnos para definir el mejor medio a su lugar de residencia.
+				        </v-expansion-panel-content>
+				    </v-expansion-panel>
+					<v-expansion-panel>
+				        <v-expansion-panel-header>¿Cuál es el tiempo de entrega?</v-expansion-panel-header>
+				        <v-expansion-panel-content>
+				            Una vez se confirma el pago, lo contactaremos para definir el tiempo de envío dependiendo de la cantidad de dispositivos solicitados.
+				        </v-expansion-panel-content>
+				    </v-expansion-panel>
+					<v-expansion-panel>
+				        <v-expansion-panel-header>¿Aceptan devolución?</v-expansion-panel-header>
+				        <v-expansion-panel-content>
+				            Se aceptan cambios por daños de fábrica y se envía un nuevo dispositivo.
 				        </v-expansion-panel-content>
 				    </v-expansion-panel>
 				</v-expansion-panels>
@@ -244,11 +277,11 @@
 <v-content class="home-newsletter">
 	<v-container class="pa-0">
 		<v-row class="text-center">
-			<v-col cols="12" md="6">
+			<v-col data-aos="fade-up" data-aos-delay="300" cols="12" md="6">
 				<h3 class="mb-3">Suscribete a nuestro boletín</h3>
 				<v-text-field :hide-details="true" label="Ingrese su correo electrónico" outlined :append-outer-icon="'mdi-send'"></v-text-field>
 			</v-col>
-			<v-col cols="12" md="6">
+			<v-col cols="12" md="6" data-aos="fade-up" data-aos-delay="500">
 				<h3 class="mb-3">Nuestras redes sociales</h3>
 				<v-btn href="https://www.facebook.com/opensiembro-112360060188162/" target="blank" tile large color="#000" icon>
 			      	<v-icon>mdi-facebook</v-icon>
@@ -256,7 +289,7 @@
 			    <v-btn href="https://www.instagram.com/opensiembro/" target="blank" tile large color="#000" icon>
 			      	<v-icon>mdi-instagram</v-icon>
 			    </v-btn>
-			    <v-btn href="" tile large color="#000" icon>
+			    <v-btn href="https://wa.me/50766865816" target="_blank" tile large color="#000" icon>
 			      	<v-icon>mdi-whatsapp</v-icon>
 			    </v-btn>
 			</v-col>
@@ -267,24 +300,24 @@
 <v-content class="home-contact">
 	<v-container>
 		<v-row class="text-center">
-			<v-col cols="12">
-				<h2>CONTÁCTENOS</h2>
+			<v-col cols="12" class="mt-12 mb-8">
+				<h2 data-aos="fade-up" data-aos-delay="500">CONTÁCTENOS</h2>
 			</v-col>
 		</v-row>
 		<v-row class="text-center">
-			<v-col cols="12" md="4">
+			<v-col cols="12" md="4" data-aos="fade-up" data-aos-delay="500">
 				<v-avatar color="indigo">
 			      	<v-icon dark>mdi-home-variant</v-icon>
 			    </v-avatar>
-			    <p class="mt-3">Panamá, Herrera, Chitré, Calle </p>
+			    <p class="mt-3">Chitré, Panamá </p>
 			</v-col>
-			<v-col cols="12" md="4">
+			<v-col cols="12" md="4" data-aos="fade-up" data-aos-delay="700">
 				<v-avatar color="indigo">
 			      	<v-icon dark>mdi-phone</v-icon>
 			    </v-avatar>
-			    <p class="mt-3">+507 6XXX-XXXX</p>
+			    <p class="mt-3">+507 6686-5816</p>
 			</v-col>
-			<v-col cols="12" md="4">
+			<v-col cols="12" md="4" data-aos="fade-up" data-aos-delay="900">
 				<v-avatar color="indigo">
 			      	<v-icon dark>mdi-at</v-icon>
 			    </v-avatar>
@@ -292,7 +325,7 @@
 			</v-col>
 		</v-row>
 		<v-row>
-			<v-col cols="12" md="6">
+			<v-col cols="12" md="6" data-aos="fade-up" data-aos-delay="500">
 				<h3>Open Siembro</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -302,20 +335,17 @@
 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua.</p>
-				<v-btn color="#fff" outlined fab x-small dark>
+				<v-btn href="https://www.facebook.com/opensiembro-112360060188162/" target="blank" color="#fff" outlined fab x-small dark>
 	              	<v-icon size="12" dark>mdi-facebook</v-icon>
 	            </v-btn>
-	            <v-btn color="#fff" outlined fab x-small dark>
-	              	<v-icon size="12" dark>mdi-twitter</v-icon>
-	            </v-btn>
-	            <v-btn color="#fff" outlined fab x-small dark>
+	            <v-btn href="https://www.instagram.com/opensiembro/" target="blank" color="#fff" outlined fab x-small dark>
 	              	<v-icon size="12" dark>mdi-instagram</v-icon>
 	            </v-btn>
-	            <v-btn color="#fff" outlined fab x-small dark>
+	            <v-btn href="https://wa.me/50766865816" target="_blank" color="#fff" outlined fab x-small dark>
 	              	<v-icon size="12" dark>mdi-whatsapp</v-icon>
 	            </v-btn>
 			</v-col>
-			<v-col cols="12" md="6">
+			<v-col cols="12" md="6" data-aos="fade-up" data-aos-delay="500">
 				<v-text-field dark color="#fff" label="Nombre Completo"></v-text-field>
 				<v-text-field dark color="#fff" label="Correo electrónico"></v-text-field>
 				<v-text-field dark color="#fff" label="Asunto"></v-text-field>

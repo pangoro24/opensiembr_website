@@ -2,8 +2,8 @@ import Vue from 'vue';
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
 import '@mdi/font/css/materialdesignicons.css';
-
-import axios from 'axios';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 Vue.use(Vuetify);
 
@@ -12,7 +12,8 @@ var app = new Vue({
 	vuetify: new Vuetify(),
 	data: {
 		drawer: null,
-		fab: false
+		fab: false,
+		overlay: false,
 	},
 	methods: {
 		onScroll(e) {
@@ -23,5 +24,8 @@ var app = new Vue({
 		toTop() {
 			this.$vuetify.goTo(0)
 		}
-	}
+	},
+	created() {
+		AOS.init({ disable: "phone" });
+	},
 });

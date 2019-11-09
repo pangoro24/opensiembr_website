@@ -9,7 +9,7 @@
 					    </v-row>
 					</template>
 				</v-img>
-				<p>Sistema inteligente de bajo costo para control de riego y monitoreo de siembro.</p>
+				<p>Sistema inteligente de monitoreo de siembro y control de riego.</p>
 			</v-col>
 			<v-col cols="12" md="2">
 				<h3 class="mb-3">Sobre Nosotros</h3>
@@ -38,7 +38,7 @@
 	<v-container>
 		<v-row>
 			<v-col class="text-center caption" cols="12">
-				Todos los Derechos Reservados | 2019 | OpenSiembro.com
+				Todos los Derechos Reservados | 2019 | Open Siembro.com
 			</v-col>
 		</v-row>
 	</v-container>

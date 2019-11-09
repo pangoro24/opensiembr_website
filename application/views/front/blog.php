@@ -11,8 +11,7 @@
 				<v-card class="mx-auto">
 				    <v-container>
 				        <v-row dense>
-				            <v-col cols="12">
-
+				            <v-col cols="12" data-aos="fade-in" data-aos-delay="500">
 				                <v-card class="mb-5" color="#d6d6d6">
 				                    <div class="d-flex flex-no-wrap justify-space-between">
 				                        <v-avatar class="ma-3" size="125" tile>
@@ -84,7 +83,7 @@
 			</v-col>
 			<v-col cols="12" md="4">
 
-				<v-card class="mx-auto" max-width="344" outlined>
+				<v-card class="mx-auto" max-width="344" outlined data-aos="fade-up" data-aos-delay="200">
 				    <v-list-item>
 				        <v-list-item-content>
 				            <v-text-field label="Buscar artículo" filled rounded dense></v-text-field>
@@ -93,7 +92,7 @@
 				    </v-list-item>
 				</v-card>
 				
-				<v-card class="mx-auto mt-5" max-width="344" outlined>
+				<v-card class="mx-auto mt-5" max-width="344" outlined data-aos="fade-up" data-aos-delay="200">
 				    <v-list-item three-line>
 				        <v-list-item-content>
 				            <v-list-item-title class="headline mb-1">Post Recientes</v-list-item-title>
@@ -109,7 +108,7 @@
 				    </v-list-item>
 				</v-card>
 
-				<v-card class="mx-auto mt-5" max-width="344" outlined>
+				<v-card class="mx-auto mt-5" max-width="344" outlined data-aos="fade-up" data-aos-delay="200">
 				    <v-list-item three-line>
 				        <v-list-item-content>
 				            <v-list-item-title class="headline mb-1">Tag</v-list-item-title>

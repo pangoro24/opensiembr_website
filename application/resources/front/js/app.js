@@ -4,8 +4,22 @@ import 'vuetify/dist/vuetify.min.css';
 import '@mdi/font/css/materialdesignicons.css';
 import AOS from "aos";
 import "aos/dist/aos.css";
+var VueScrollTo = require('vue-scrollto');
 
 Vue.use(Vuetify);
+Vue.use(VueScrollTo, {
+     container: "body",
+     duration: 500,
+     easing: "ease",
+     offset: 0,
+     force: true,
+     cancelable: true,
+     onStart: false,
+     onDone: false,
+     onCancel: false,
+     x: false,
+     y: true
+ })
 
 var app = new Vue({
 	el: '#app',

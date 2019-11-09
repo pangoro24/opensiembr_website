@@ -14,7 +14,7 @@
 				<v-btn data-aos="flip-up" href="https://www.instagram.com/opensiembro/" target="blank" tile large color="#fff" icon>
 					<v-icon>mdi-instagram</v-icon>
 				</v-btn>
-				<v-btn data-aos="flip-up" href="https://wa.me/50766865816" target="_blank" tile large color="#fff" icon>
+				<v-btn data-aos="flip-up" href="https://wa.me/50766865816" target="_blank" rel="noopener" tile large color="#fff" icon>
 					<v-icon>mdi-whatsapp</v-icon>
 				</v-btn>
 			</section>
@@ -29,26 +29,26 @@
 	</v-container>
 </v-content>
 
-<v-content class="home-device">
+<v-content class="home-device" id="device">
 	<v-container>
 		<v-row class="text-center">
 			<v-col cols="12">
-				<h2 data-aos="fade-up">NUESTRO DISPOSITIVO</h2>
+				<h2 data-aos="fade-up" data-aos-once="true">NUESTRO DISPOSITIVO</h2>
 			</v-col>
 		</v-row>
 		<v-row>
 			<v-col cols="12">
-				<v-img data-aos="fade-up" class="app" width="100%" src="/assets/img/device-home.png">
+				<v-img data-aos="fade-up" data-aos-once="true" class="app" width="100%" src="/assets/img/device-home.png">
 			</v-col>
 		</v-row>
 	</v-container>
 </v-content>
 
-<v-content class="home-app">
+<v-content class="home-app" id="apps">
 	<v-container>
 		<v-row class="text-center">
 			<v-col cols="12">
-				<h2 data-aos="fade-up" data-aos-delay="500">BENEFICIOS DEL SISTEMA OPEN SIEMBRO</h2>
+				<h2 data-aos="fade-up" data-aos-delay="200" data-aos-once="true">BENEFICIOS DEL SISTEMA OPEN SIEMBRO</h2>
 			</v-col>
 		</v-row>
 		<v-row>
@@ -90,13 +90,13 @@
 			</v-col>
 			<v-col cols="12" md="4">
 				<div class="text-center">
-					<v-img data-aos="fade-up" data-aos-delay="700" class="app" width="320" src="/assets/img/app.png" lazy-src="/assets/img/app.png">
+					<v-img data-aos="fade-up" data-aos-delay="200" data-aos-once="true" class="app" width="320" src="/assets/img/app.png" lazy-src="/assets/img/app.png">
 				</div>
 			</v-col>
 			<v-col cols="12" md="4">
 				<v-hover v-slot:default="{ hover }">
 				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
-					    <v-card-text class="text-right">
+					    <v-card-text class="text-left">
 					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-file-document-box-check-outline</v-icon>
 					    	<h3 :class="hover ? 'blue--text' : '' ">
 								Amplia información de diferentes tipos de plantas
@@ -106,7 +106,7 @@
 				</v-hover>
 				<v-hover v-slot:default="{ hover }">
 				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
-					    <v-card-text class="text-right">
+					    <v-card-text class="text-left">
 					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-numeric-0-circle-outline</v-icon>
 					    	<h3 :class="hover ? 'blue--text' : '' ">100% Gratuita</h3>
 					    </v-card-text>
@@ -114,7 +114,7 @@
 				</v-hover>
 				<v-hover v-slot:default="{ hover }">
 				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
-					    <v-card-text class="text-right">
+					    <v-card-text class="text-left">
 					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-gesture-spread</v-icon>
 					    	<h3 :class="hover ? 'blue--text' : '' ">Intuitiva y amigable para el usuario</h3>
 					    </v-card-text>
@@ -122,7 +122,7 @@
 				</v-hover>
 				<v-hover v-slot:default="{ hover }">
 				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
-					    <v-card-text class="text-right">
+					    <v-card-text class="text-left">
 					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-math-compass</v-icon>
 					    	<h3 :class="hover ? 'blue--text' : '' ">
 								Personalizable al tipo de cultivo que siembras y al sistema de riego que usas
@@ -132,19 +132,19 @@
 				</v-hover>
 			</v-col>
 		</v-row>
-	</v-container>	
+	</v-container>
 </v-content>
 
 <v-content class="home-blog">
 	<v-container>
 		<v-row class="text-center">
 			<v-col cols="12">
-				<h2 data-aos="fade-up" data-aos-delay="500">BLOG</h2>
+				<h2 data-aos="fade-up" data-aos-delay="200" data-aos-once="true">BLOG</h2>
 			</v-col>
 		</v-row>
 		<v-row>
 			<v-col cols="12" md="4">
-				<v-card data-aos="fade-up" data-aos-delay="500" class="mx-auto" max-width="400">
+				<v-card data-aos="fade-up" data-aos-delay="200" data-aos-once="true" class="mx-auto" max-width="400">
 				    <v-img class="white--text align-end" height="200px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
 				        <v-card-title>¿Quienes realmente están detrás de open siembro?</v-card-title>
 				    </v-img>
@@ -161,7 +161,7 @@
 				</v-card>
 			</v-col>
 			<v-col cols="12" md="4">
-				<v-card data-aos="fade-up" data-aos-delay="700" class="mx-auto" max-width="400">
+				<v-card data-aos="fade-up" data-aos-delay="400" data-aos-once="true" class="mx-auto" max-width="400">
 				    <v-img class="white--text align-end" height="200px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
 				        <v-card-title>¿open siembro, de la idea al producto?</v-card-title>
 				    </v-img>
@@ -178,7 +178,7 @@
 				</v-card>
 			</v-col>
 			<v-col cols="12" md="4">
-				<v-card data-aos="fade-up" data-aos-delay="900" class="mx-auto" max-width="400">
+				<v-card data-aos="fade-up" data-aos-delay="600" data-aos-once="true" class="mx-auto" max-width="400">
 				    <v-img class="white--text align-end" height="200px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
 				        <v-card-title>Misión y visión del proyecto</v-card-title>
 				    </v-img>
@@ -202,12 +202,12 @@
 	<v-container>
 		<v-row class="text-center">
 			<v-col cols="12" class="mt-12 mb-8">
-				<h1 data-aos="fade-up" data-aos-delay="500">PREGUNTAS FRECUENTES</h1>
+				<h1 data-aos="fade-up" data-aos-delay="200" data-aos-once="true">PREGUNTAS FRECUENTES</h1>
 			</v-col>
 		</v-row>
 		<v-row>
 			<v-col cols="12">
-				<v-expansion-panels data-aos="fade-up" data-aos-delay="700">
+				<v-expansion-panels data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
 				    <v-expansion-panel>
 				        <v-expansion-panel-header>¿Qué realmente ofrecemos?</v-expansion-panel-header>
 				        <v-expansion-panel-content>
@@ -271,53 +271,30 @@
 				</v-expansion-panels>
 			</v-col>
 		</v-row>
-	</v-container>	
-</v-content>
-
-<v-content class="home-newsletter">
-	<v-container class="pa-0">
-		<v-row class="text-center">
-			<v-col data-aos="fade-up" data-aos-delay="300" cols="12" md="6">
-				<h3 class="mb-3">Suscribete a nuestro boletín</h3>
-				<v-text-field :hide-details="true" label="Ingrese su correo electrónico" outlined :append-outer-icon="'mdi-send'"></v-text-field>
-			</v-col>
-			<v-col cols="12" md="6" data-aos="fade-up" data-aos-delay="500">
-				<h3 class="mb-3">Nuestras redes sociales</h3>
-				<v-btn href="https://www.facebook.com/opensiembro-112360060188162/" target="blank" tile large color="#000" icon>
-			      	<v-icon>mdi-facebook</v-icon>
-			    </v-btn>
-			    <v-btn href="https://www.instagram.com/opensiembro/" target="blank" tile large color="#000" icon>
-			      	<v-icon>mdi-instagram</v-icon>
-			    </v-btn>
-			    <v-btn href="https://wa.me/50766865816" target="_blank" tile large color="#000" icon>
-			      	<v-icon>mdi-whatsapp</v-icon>
-			    </v-btn>
-			</v-col>
-		</v-row>
 	</v-container>
 </v-content>
 
-<v-content class="home-contact">
+<v-content class="home-contact" id="help">
 	<v-container>
 		<v-row class="text-center">
 			<v-col cols="12" class="mt-12 mb-8">
-				<h2 data-aos="fade-up" data-aos-delay="500">CONTÁCTENOS</h2>
+				<h2 data-aos="fade-up" data-aos-delay="200" data-aos-once="true">CONTÁCTENOS</h2>
 			</v-col>
 		</v-row>
 		<v-row class="text-center">
-			<v-col cols="12" md="4" data-aos="fade-up" data-aos-delay="500">
+			<v-col cols="12" md="4" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
 				<v-avatar color="indigo">
 			      	<v-icon dark>mdi-home-variant</v-icon>
 			    </v-avatar>
 			    <p class="mt-3">Chitré, Panamá </p>
 			</v-col>
-			<v-col cols="12" md="4" data-aos="fade-up" data-aos-delay="700">
+			<v-col cols="12" md="4" data-aos="fade-up" data-aos-delay="400" data-aos-once="true">
 				<v-avatar color="indigo">
 			      	<v-icon dark>mdi-phone</v-icon>
 			    </v-avatar>
 			    <p class="mt-3">+507 6686-5816</p>
 			</v-col>
-			<v-col cols="12" md="4" data-aos="fade-up" data-aos-delay="900">
+			<v-col cols="12" md="4" data-aos="fade-up" data-aos-delay="600" data-aos-once="true">
 				<v-avatar color="indigo">
 			      	<v-icon dark>mdi-at</v-icon>
 			    </v-avatar>
@@ -325,27 +302,22 @@
 			</v-col>
 		</v-row>
 		<v-row>
-			<v-col cols="12" md="6" data-aos="fade-up" data-aos-delay="500">
-				<h3>Open Siembro</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua.</p>
-				<v-btn href="https://www.facebook.com/opensiembro-112360060188162/" target="blank" color="#fff" outlined fab x-small dark>
-	              	<v-icon size="12" dark>mdi-facebook</v-icon>
-	            </v-btn>
-	            <v-btn href="https://www.instagram.com/opensiembro/" target="blank" color="#fff" outlined fab x-small dark>
-	              	<v-icon size="12" dark>mdi-instagram</v-icon>
-	            </v-btn>
-	            <v-btn href="https://wa.me/50766865816" target="_blank" color="#fff" outlined fab x-small dark>
-	              	<v-icon size="12" dark>mdi-whatsapp</v-icon>
-	            </v-btn>
+			<v-col class="text-center mt-10" cols="12" md="6" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
+				<h3 class="mb-3">Suscribete a nuestro boletín</h3>
+				<v-text-field :hide-details="true" dark color="#fff" label="Ingrese su correo electrónico" outlined :append-outer-icon="'mdi-send'"></v-text-field>
+				<br>
+				<h3 class="mb-3 mt-5">Nuestras redes sociales</h3>
+				<v-btn href="https://www.facebook.com/opensiembro-112360060188162/" target="blank" tile large color="#fff" icon>
+			      	<v-icon>mdi-facebook</v-icon>
+			    </v-btn>
+			    <v-btn href="https://www.instagram.com/opensiembro/" target="blank" tile large color="#fff" icon>
+			      	<v-icon>mdi-instagram</v-icon>
+			    </v-btn>
+			    <v-btn href="https://wa.me/50766865816" target="_blank" rel="noopener" tile large color="#fff" icon>
+			      	<v-icon>mdi-whatsapp</v-icon>
+			    </v-btn>
 			</v-col>
-			<v-col cols="12" md="6" data-aos="fade-up" data-aos-delay="500">
+			<v-col cols="12" md="6" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
 				<v-text-field dark color="#fff" label="Nombre Completo"></v-text-field>
 				<v-text-field dark color="#fff" label="Correo electrónico"></v-text-field>
 				<v-text-field dark color="#fff" label="Asunto"></v-text-field>

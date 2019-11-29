@@ -18,3 +18,7 @@ mix.js('./application/resources/comming-soon/js/app.js', './assets/comming-soon/
 // Front-End
 mix.js('./application/resources/front/js/app.js', './assets/front/app.js')
    .sass('./application/resources/front/sass/app.scss', './assets/front/app.css');
+
+// Front-End
+mix.js('./application/resources/back/js/app.js', './assets/back/app.js')
+   .sass('./application/resources/back/sass/app.scss', './assets/back/app.css');

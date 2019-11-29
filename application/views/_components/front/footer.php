@@ -2,7 +2,7 @@
 	<v-container>
 		<v-row>
 			<v-col cols="12" md="3">
-				<v-img width="120" src="/assets/img/logo-footer.png" lazy-src="/assets/img/logo-footer.png">
+				<v-img width="120" src="/assets/img/logo-white-footer.png" lazy-src="/assets/img/logo-white-footer.png">
 					<template v-slot:placeholder>
 					    <v-row class="fill-height ma-0" align="center" justify="center">
 					        <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>

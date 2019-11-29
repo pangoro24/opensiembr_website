@@ -4,7 +4,7 @@
 		<v-toolbar :flat="true" dark class="header-menu">
 		    <v-toolbar-title>
 		    	<a href="<?= base_url('/') ?>" title="">
-		    		<v-img width="190" src="/assets/img/logo.png" lazy-src="/assets/img/logo.png"></v-img>
+		    		<v-img width="190" src="/assets/img/logo-white.png" lazy-src="/assets/img/logo-white.png"></v-img>
 		    	</a>
 		    </v-toolbar-title>
 
@@ -43,13 +43,18 @@
 				    </template>
 
 				    <v-card>
+						<v-form v-on:submit.prevent="login">
 				        <v-card-text>
 				        	<p>INICIAR SESIÓN</p>
-				        	<v-text-field class="mb-2" solo prepend-inner-icon="mdi-account-circle-outline" label="Correo Electrónico" hide-details="true"></v-text-field>
-				        	<v-text-field class="mb-2" solo prepend-inner-icon="mdi-lock-open-outline" label="Contraseña" hide-details="true"></v-text-field>
-				        	<v-btn small color="primary">Iniciar Sesión</v-btn>
-				        	<v-btn small color="primary">Registrarse</v-btn>
+							<v-alert type="error" class="transition-swing" transition="scale-transition" :value="showError"  dense outlined>
+								{{ message }}
+							</v-alert>
+				        	<v-text-field v-model="emailPhone" class="mb-2" solo prepend-inner-icon="mdi-account-circle-outline" label="Correo Electrónico" :hide-details="true"></v-text-field>
+				        	<v-text-field v-model="password" type="password" class="mb-2" solo prepend-inner-icon="mdi-lock-open-outline" label="Contraseña" :hide-details="true"></v-text-field>
+				        	<v-btn type="submit" small color="primary">Iniciar Sesión</v-btn>
+				        	<v-btn type="button" href="<?= base_url('/register') ?>" small color="primary">Registrarse</v-btn>
 				        </v-card-text>
+						</v-form>
 				    </v-card>
 				</v-menu>
 

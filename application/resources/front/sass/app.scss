@@ -20,7 +20,11 @@
 
 // HOME BLOG
 .home-blog{
-	background-color: #CDCDCD;
+	background-image: url("/assets/img/home-blog.jpg");
+	background-position: center;
+  	background-size: cover;
+  	width: 100%;
+	color: white;
 }
 
 // APP

@@ -1,5 +1,7 @@
 # CONFIG CODEIGNITER
 application/config/config.php
+application/config/database.php
+composer.json
 
 # SFTP
 sftp-config.json

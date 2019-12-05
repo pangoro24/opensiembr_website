@@ -3,12 +3,16 @@ import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
 import '@mdi/font/css/materialdesignicons.css';
 import axios from 'axios';
+import menu_principal from "./components/Menu";
 
 Vue.use(Vuetify);
 
 var app = new Vue({
 	el: '#app',
 	vuetify: new Vuetify(),
+	components: {
+		menu_principal
+	},
 	data: {
 		base_url: 'http://dev.opensiembro.com/api/',
 		drawer: null,

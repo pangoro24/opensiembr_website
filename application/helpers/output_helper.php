@@ -15,7 +15,7 @@ if (!function_exists('json_output')) {
         echo json_encode($data);
     }
 }
-if (!function_exists('encriptacion')) {
+if (!function_exists('pwEncrypt')) {
 	function pwEncrypt($string = null)
 	{
 		if ($string) {
@@ -27,7 +27,7 @@ if (!function_exists('encriptacion')) {
 	}
 }
 
-if (!function_exists('encriptacion')) {
+if (!function_exists('pwDecrypt')) {
 	function pwDecrypt($pwText = null, $pwhash =  null)
 	{
 		return password_verify($pwText, $pwhash);

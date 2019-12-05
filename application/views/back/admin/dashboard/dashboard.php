@@ -1,4 +1,4 @@
-<v-container>
+<v-container class="pa-5">
 	<v-row>
 		<v-col cols="12">
 			<v-skeleton-loader type="text" :loading="skeletonLoading" width="20%" transition="scale-transition">
@@ -14,7 +14,27 @@
 			<h5>Reportes</h5>
 		</v-col>
 		<v-col cols="12" class="col-md-4">
-			<h5>Ventas</h5>
+			<v-skeleton-loader type="list-item-avatar-three-line" :loading="skeletonLoading" transition="scale-transition">
+				<v-card>
+					<v-card-text>
+						<div><h5>Mis Ultimos Post</h5></div>
+						<v-list three-line>
+							<template>
+								<v-list-item @click="">
+									<v-list-item-avatar>
+										<v-icon>mdi-account-circle</v-icon>
+									</v-list-item-avatar>
+
+									<v-list-item-content>
+										<v-list-item-title>title</v-list-item-title>
+										<v-list-item-subtitle>Sub</v-list-item-subtitle>
+									</v-list-item-content>
+								</v-list-item>
+							</template>
+						</v-list>
+					</v-card-text>
+				</v-card>
+			</v-skeleton-loader>
 		</v-col>
 	</v-row>
 </v-container>

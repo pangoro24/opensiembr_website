@@ -3,7 +3,10 @@ import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
 import '@mdi/font/css/materialdesignicons.css';
 import axios from 'axios';
+
+// IMPORTS COMPONENTS
 import menu_principal from "./components/Menu";
+import all_blog from "./components/all_blog";
 
 Vue.use(Vuetify);
 
@@ -11,7 +14,8 @@ var app = new Vue({
 	el: '#app',
 	vuetify: new Vuetify(),
 	components: {
-		menu_principal
+		menu_principal,
+		all_blog
 	},
 	data: {
 		base_url: 'http://dev.opensiembro.com/api/',

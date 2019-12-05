@@ -59,7 +59,7 @@ class Menu
 							$html .= '<v-divider></v-divider>';
 							break;
 						case 'link':
-							$html .= '<v-skeleton-loader type="list-item" :loading="loading" transition="slide-x-transition">';
+							$html .= '<v-skeleton-loader type="list-item" :loading="skeletonLoading" transition="slide-x-transition">';
 								$html .= '<v-list-item href="' . base_url($menu['items'][$itemId]['menu_slug']) .'">';
 									$html .= '<v-list-item-action>';
 										$html .= '<v-icon class="'.$active_2.'">'.$menu['items'][$itemId]['menu_ico'].'</v-icon>';
@@ -88,7 +88,7 @@ class Menu
 							break;
 						case 'link':
 
-							$html .= '<v-skeleton-loader width="70%" type="list-item" :loading="loading" transition="slide-x-reverse-transition">';
+							$html .= '<v-skeleton-loader width="70%" type="list-item" :loading="skeletonLoading" transition="slide-x-reverse-transition">';
 								$html .= '<v-list-group prepend-icon="'. $menu['items'][$itemId]['menu_ico'] .'" :value="'. $active .'">';
 									$html .= '<template v-slot:activator>';
 										$html .= '<v-list-item-title>' . $menu['items'][$itemId]['menu_name'] . '</v-list-item-title>';

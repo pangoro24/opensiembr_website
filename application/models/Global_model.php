@@ -14,7 +14,7 @@ class Global_model extends CI_Model {
         $this->db->where('menu_slug', $uriSegment);
         $query_result = $this->db->get();
         $result       = $query_result->row();
-        if ($query_result->num_rows > 0) {
+        if ($result) {
             $menuId[] = $result->menu_id;
             $menuId   = $this->select_menu_by_id($result->menu_parent, $menuId);
         } else {
@@ -41,7 +41,7 @@ class Global_model extends CI_Model {
         $this->db->where('menu_id', $id);
         $query_result = $this->db->get();
         $result       = $query_result->row();
-        if (count($result)) {
+        if ($result) {
             array_push($menuId, $result->menu_id);
             if ($result->menu_parent != 0) {
                 $result = self::select_menu_by_id($result->menu_parent, $menuId);

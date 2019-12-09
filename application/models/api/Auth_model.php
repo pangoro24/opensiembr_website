@@ -80,6 +80,7 @@ class Auth_model extends CI_Model
 
 			// CREAMOS SESION DATA
 			$sessionData = array(
+				'id' => $row->id,
 				'email_user'   => $row->email,
 				'rol'       => $row->role_id,
 				'logged_in' => TRUE,

@@ -2,13 +2,21 @@ import Vue from 'vue';
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
 import '@mdi/font/css/materialdesignicons.css';
+
+// Editor
+import CKEditor from '@ckeditor/ckeditor5-vue';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
+
 import axios from 'axios';
+import $ from 'jquery';
 
 // IMPORTS COMPONENTS
 import menu_principal from "./components/Menu";
 import all_blog from "./components/all_blog";
 
 Vue.use(Vuetify);
+Vue.use( CKEditor );
 
 var app = new Vue({
 	el: '#app',
@@ -30,7 +38,28 @@ var app = new Vue({
 		// REGISTER USER
 		name: '',
 		phone: '',
-		email: ''
+		email: '',
+		// BLOG
+		title: '',
+		rulesUpload: [
+			value => !value || value.size < 2000000 || 'Avatar size should be less than 2 MB!',
+		],
+		imageData: "",
+		imageFirst: '',
+		file_data: '',
+		// EDITOR BLOG
+		editor: ClassicEditor,
+		editorData: '',
+		editorConfig: {
+			// The configuration of the editor.
+			ckfinder: {
+				uploadUrl: 'http://dev.opensiembro.com/api/blog/upload_images_editor'
+			}
+		},
+		// TAG
+		tag: [],
+		items: [],
+		search: "" //sync search
 	},
 	mounted() {
         setTimeout(() => {
@@ -116,6 +145,57 @@ var app = new Vue({
 						}
 					}
 				})
+		},
+		previewImage: function(event) {
+			// Reference to the DOM input element
+			const input = event;
+			// Ensure that you have a file before attempting to read it
+			if (input) {
+				// create a new FileReader to read this image and convert to base64 format
+				const reader = new FileReader();
+				// Define a callback function to run, when FileReader finishes its job
+				reader.onload = (e) => {
+					// Note: arrow function used here, so that "this.imageData" refers to the imageData of Vue component
+					// Read image as base64 and set to imageData
+					this.imageData = e.target.result;
+				};
+				// Start the reader job - read file as a data url (base64 format)
+				reader.readAsDataURL(input);
+			}
+		},
+		saveBlog() {
+			this.loading = true;
+			const $this = this;
+
+			this.file_data = $('#image').prop('files')[0];
+
+			const data_form = new FormData();
+				  data_form.append ('title', this.title);
+				  data_form.append ('body', this.editorData);
+				  data_form.append ('tag', this.tag);
+				  data_form.append ('file', this.file_data);
+
+			axios.post(this.base_url + 'blog/post', data_form)
+				.then( response => {
+					this.loading = false;
+					location.href = './all';
+					console.log(response);
+				})
+				.catch( error => {
+					this.loading = false;
+					$this.message = error.response.data.message;
+					$this.showError = true;
+					$this.typeError = 'error';
+					console.log(error.response);
+				})
+		},
+		updateTags() {
+			this.$nextTick(() => {
+				this.select.push(...this.search.split(","));
+				this.$nextTick(() => {
+					this.search = "";
+				});
+			});
 		}
 	}
 });

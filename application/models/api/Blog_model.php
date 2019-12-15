@@ -23,7 +23,7 @@ class Blog_model extends CI_Model
 
 	public function _post()
 	{
-		$config['upload_path']          = './blog/';
+		$config['upload_path']          = './assets/blog/';
 		$config['allowed_types']        = 'gif|jpg|jpeg|png';
 		$config['max_size']             = 2048;
 		$config['encrypt_name']         = true;
@@ -64,7 +64,7 @@ class Blog_model extends CI_Model
 
 	public function _put($id, $data)
 	{
-		$config['upload_path']          = './blog/';
+		$config['upload_path']          = './assets/blog/';
 		$config['allowed_types']        = 'gif|jpg|jpeg|png';
 		$config['max_size']             = 2048;
 		$config['encrypt_name']         = true;

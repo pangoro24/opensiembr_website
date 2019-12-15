@@ -34,7 +34,7 @@
 
 
 		<v-list nav dense>
-			<v-list-item href="<?= base_url($this->uri->segment(1) .'/config/setting') ?>">
+			<v-list-item href="<?= base_url($this->uri->segment(1) .'/config/edit') ?>">
 				<v-list-item-icon>
 					<v-icon color="#17A2B8">mdi-settings-transfer-outline</v-icon>
 				</v-list-item-icon>

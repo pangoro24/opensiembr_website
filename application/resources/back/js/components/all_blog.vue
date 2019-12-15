@@ -17,7 +17,7 @@
                                 @page-count="pageCount = $event">
 
 								<template v-slot:item.body="{ item }">
-									{{ item.body }}
+									{{ item.body.substring(0,190) }}...
 								</template>
 
                                 <template v-slot:item.options="{ item }">

@@ -11,7 +11,9 @@
 	</v-row>
 	<v-row>
 		<v-col cols="12" class="col-md-8">
-			<h5>Reportes</h5>
+			<h5>Reporte de Ventas</h5>
+			<h5>Reporte de Usuarios</h5>
+			<h5>Reporte de Comunidad</h5>
 		</v-col>
 		<v-col cols="12" class="col-md-4">
 			<v-skeleton-loader type="list-item-avatar-three-line" :loading="skeletonLoading" transition="scale-transition">

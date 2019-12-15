@@ -155,7 +155,7 @@
 						<v-card-text class="text--primary">
 							<p><?= strip_tags(character_limiter($last->body,150)); ?></p>
 						</v-card-text>
-
+						<v-divider></v-divider>
 						<v-card-actions>
 							<v-btn href="<?= base_url('/blog/view/' .$last->id) ?>" color="green" text>
 								Ver

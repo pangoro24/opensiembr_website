@@ -26,8 +26,77 @@ class Blog extends Api_Controller {
 		} else {
 			$this->blog_model->_post();
 		}
+	}
 
+	public function get()
+	{
+		$this->rest_api->_apiConfig([
+            'methods' => ['GET'],
+            'requireAuthorization' => false,
+        ]);
 
+		$data = [
+			'error'   => false,
+			'data' => $this->blog_model->_get(),
+		];
+		json_output($data);
+	}
+
+	public function getBy($id)
+	{
+		$this->rest_api->_apiConfig([
+            'methods' => ['GET'],
+            'requireAuthorization' => false,
+        ]);
+
+		$data = [
+			'error'   => false,
+			'data' => $this->blog_model->_getBy($id),
+		];
+		json_output($data);
+	}
+
+	public function put($id)
+	{
+		$this->form_validation->set_rules('title', 'Titulo', 'trim|required');
+		$this->form_validation->set_rules('body', 'Cuerpo del Blog', 'trim|required');
+		$this->form_validation->set_rules('tag', 'Tags', 'trim|required');
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			$data = [
+				'error'   => true,
+				'message' => validation_errors(' ',' '),
+			];
+			json_output($data);
+		} else {
+			$data = array(
+				'title' => $this->input->post('title'),
+				'body'  => $this->input->post('body'),
+				'tag'   => $this->input->post('tag')
+			);
+			$this->blog_model->_put($id, $data);
+		}
+	}
+
+	// CUSTOM API
+	public function put_status($id)
+	{
+		$this->form_validation->set_rules('status', 'Estado', 'trim|required|in_list[0,1]');
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			$data = [
+				'error'   => true,
+				'message' => validation_errors(' ',' '),
+			];
+			json_output($data);
+		} else {
+			$data = array(
+				'status' => $this->input->post('status')
+			);
+			$this->blog_model->_put($id, $data);
+		}
 	}
 
 	public function upload_file()
@@ -58,20 +127,6 @@ class Blog extends Api_Controller {
 			$data = array('upload_data' => $this->upload->data());
 			return 'La imagen se ha subido correctamente.';
 		}
-	}
-
-	public function get()
-	{
-		$this->rest_api->_apiConfig([
-            'methods' => ['GET'],
-            'requireAuthorization' => false,
-        ]);
-
-		$data = [
-			'error'   => false,
-			'data' => $this->blog_model->_get(),
-		];
-		json_output($data);
 	}
 
 }

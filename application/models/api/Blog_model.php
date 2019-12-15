@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Blog_model extends CI_Model
 {
-
 	protected $table = 'blog';
 
 	public function _get()
@@ -14,10 +13,18 @@ class Blog_model extends CI_Model
 		return $query->result();
 	}
 
+	public function _getBy($id)
+	{
+		$this->db->from($this->table);
+		$this->db->where('id', $id);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
 	public function _post()
 	{
 		$config['upload_path']          = './blog/';
-		$config['allowed_types']        = 'gif|jpg|png';
+		$config['allowed_types']        = 'gif|jpg|jpeg|png';
 		$config['max_size']             = 2048;
 		$config['encrypt_name']         = true;
 
@@ -39,7 +46,7 @@ class Blog_model extends CI_Model
 			$dataDB = array(
 				'title' => $this->input->post('title'),
 				'body' => $this->input->post('body'),
-				'tag' => json_encode($this->input->post('tag')),
+				'tag' => $this->input->post('tag'),
 				'user' => $this->session->userdata('id'),
 				'images' => $this->upload->data('file_name'),
 				'status' => true,
@@ -53,6 +60,56 @@ class Blog_model extends CI_Model
 			];
 			json_output($dataReturn);
 		}
+	}
+
+	public function _put($id, $data)
+	{
+		$config['upload_path']          = './blog/';
+		$config['allowed_types']        = 'gif|jpg|jpeg|png';
+		$config['max_size']             = 2048;
+		$config['encrypt_name']         = true;
+
+		$this->load->library('upload', $config);
+
+		if ( ! $this->upload->do_upload('file'))
+		{
+			$this->db->where('id', $id);
+			$this->db->update('blog', $data);
+
+			$dataReturn = [
+				'error'   => false,
+				'message' => 'El Post se ha editado correctamente.',
+			];
+			json_output($dataReturn);
+
+		} else {
+			$data = array('upload_data' => $this->upload->data());
+
+			$dataDB = array(
+				'title' => $this->input->post('title'),
+				'body'  => $this->input->post('body'),
+				'tag'   => $this->input->post('tag'),
+				'images' => $this->upload->data('file_name'),
+			);
+			$this->db->where('id', $id);
+			$this->db->update('blog', $dataDB);
+
+			$dataReturn = [
+				'error'   => false,
+				'message' => 'El Post se ha editado correctamente.',
+			];
+			json_output($dataReturn);
+		}
+	}
+
+	// CUSTOM MODEL
+	public function _get_limit($limit)
+	{
+		$this->db->from($this->table);
+		$this->db->order_by('id', 'desc');
+		$this->db->limit($limit);
+		$query = $this->db->get();
+		return $query->result();
 	}
 
 }

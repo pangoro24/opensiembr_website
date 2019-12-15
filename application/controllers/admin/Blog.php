@@ -23,4 +23,15 @@ class Blog extends Admin_Controller {
 		$this->load->view('_layouts/admin', $data);
 	}
 
+	public function edit($id)
+	{
+		$data = [
+			'title' => 'Blog',
+			'section' => 'edit',
+			'data'	  => $this->user_model->info(),
+			'blog'    => $this->blog_model->_getBy($id)
+		];
+		$this->load->view('_layouts/admin', $data);
+	}
+
 }

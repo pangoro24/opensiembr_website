@@ -16,17 +16,11 @@
                                 class="elevation-1"
                                 @page-count="pageCount = $event">
 
+								<template v-slot:item.body="{ item }">
+									{{ item.body }}
+								</template>
+
                                 <template v-slot:item.options="{ item }">
-                                    <v-tooltip bottom>
-                                        <template v-slot:activator="{ on }">
-                                            <v-btn v-on="on" text icon color="primary">
-                                                <v-icon small @click="view(item.id)">
-                                                    mdi-eye
-                                                </v-icon>
-                                            </v-btn>
-                                        </template>
-                                        <span>Ver Blog</span>
-                                    </v-tooltip>
 
                                     <v-tooltip bottom>
                                         <template v-slot:activator="{ on }">
@@ -40,7 +34,6 @@
                                     </v-tooltip>
 
                                 </template>
-
                             </v-data-table>
                     </v-card>
                 </v-skeleton-loader>
@@ -71,7 +64,7 @@
                         value: 'title',
                     },
                     { text: 'Descripcion', value: 'body' },
-                    { text: 'Fecha', value: 'tile' },
+                    { text: 'Fecha', value: 'created_at' },
                     { text: 'Opciones', value: 'options', sortable: false },
                 ],
                 // BD
@@ -92,13 +85,9 @@
             })
         },
         methods: {
-            view: function(item)
-            {
-                location.href = '/admin/school/view/' + item;
-            },
             edit: function (item)
             {
-                location.href = '/admin/school/edit/' + item;
+                location.href = '/admin/blog/edit/' + item;
             }
         },
     }

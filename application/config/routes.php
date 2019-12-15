@@ -11,6 +11,9 @@ $route['how-to-work'] = 'front/how_to_work';
 $route['blog'] = 'front/blog';
 $route['help'] = 'front/help';
 
+// Config Back-End user
+$route['(:any)/config/(:any)'] = 'config/config/$2';
+
 // API
 $route['api/register'] = 'api/login/register';
 

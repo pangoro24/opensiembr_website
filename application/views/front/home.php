@@ -143,57 +143,28 @@
 			</v-col>
 		</v-row>
 		<v-row>
-			<v-col cols="12" md="4">
-				<v-card data-aos="fade-up" data-aos-delay="200" data-aos-once="true" class="mx-auto" max-width="400">
-				    <v-img class="white--text align-end" height="200px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
-				        <v-card-title>¿Quienes realmente están detrás de open siembro?</v-card-title>
-				    </v-img>
 
-				    <v-card-text class="text--primary">
-						<p>Somos un grupo de profesionales panameños comprometidos con la agricultura. Queremos poder al servicio del sector agropecuario nuestros conocimientos tecnológicos y ayudar a</p>
-				    </v-card-text>
+			<?php foreach ($blog as $last): ?>
+				<v-col cols="12" md="4">
+					<v-card data-aos="fade-up" data-aos-delay="200" data-aos-once="true" class="mx-auto" max-width="400">
+						<v-img class="align-end" height="200px" src="<?= base_url('/assets/blog/' .$last->images) ?>">
+						</v-img>
 
-				    <v-card-actions>
-				        <v-btn color="orange" text>
-				            Ver
-				        </v-btn>
-				    </v-card-actions>
-				</v-card>
-			</v-col>
-			<v-col cols="12" md="4">
-				<v-card data-aos="fade-up" data-aos-delay="400" data-aos-once="true" class="mx-auto" max-width="400">
-				    <v-img class="white--text align-end" height="200px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
-				        <v-card-title>¿open siembro, de la idea al producto?</v-card-title>
-				    </v-img>
+						<v-card-title><?= $last->title ?></v-card-title>
 
-				    <v-card-text class="text--primary">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad architecto commodi cum earum eos facilis, ipsum quae quasi rem rerum. Esse ex impedit numquam ratione</p>
-				    </v-card-text>
+						<v-card-text class="text--primary">
+							<p><?= strip_tags(character_limiter($last->body,150)); ?></p>
+						</v-card-text>
 
-				    <v-card-actions>
-				        <v-btn color="orange" text>
-				            Ver
-				        </v-btn>
-				    </v-card-actions>
-				</v-card>
-			</v-col>
-			<v-col cols="12" md="4">
-				<v-card data-aos="fade-up" data-aos-delay="600" data-aos-once="true" class="mx-auto" max-width="400">
-				    <v-img class="white--text align-end" height="200px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
-				        <v-card-title>Misión y visión del proyecto</v-card-title>
-				    </v-img>
+						<v-card-actions>
+							<v-btn href="<?= base_url('/blog/view/' .$last->id) ?>" color="green" text>
+								Ver
+							</v-btn>
+						</v-card-actions>
+					</v-card>
+				</v-col>
+			<?php endforeach ?>
 
-				    <v-card-text class="text--primary">
-						<p>Los invitamos a descubrir open Siembro, una innovadora plataforma que democratiza el acceso al conocimiento mediante contenido técnico, educativo...</p>
-				    </v-card-text>
-
-				    <v-card-actions>
-				        <v-btn color="orange" text>
-				            Ver
-				        </v-btn>
-				    </v-card-actions>
-				</v-card>
-			</v-col>
 		</v-row>
 	</v-container>
 </v-content>

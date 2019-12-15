@@ -15,6 +15,7 @@ class My_BackController extends My_Controller {
 
 		// Load Model
 		$this->load->model('api/auth_model');
+		$this->load->model('api/blog_model');
         $this->load->model('user_model');
 		$this->load->model('global_model');
 

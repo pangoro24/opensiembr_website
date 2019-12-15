@@ -19,18 +19,20 @@
 					<v-card-text>
 						<div><h5>Mis Ultimos Post</h5></div>
 						<v-list three-line>
-							<template>
-								<v-list-item @click="">
-									<v-list-item-avatar>
-										<v-icon>mdi-account-circle</v-icon>
-									</v-list-item-avatar>
+							<?php foreach ($all_blogs as $blog): ?>
+								<template>
+									<v-list-item @click="">
+										<v-list-item-avatar>
+											<v-icon>mdi-account-circle</v-icon>
+										</v-list-item-avatar>
 
-									<v-list-item-content>
-										<v-list-item-title>title</v-list-item-title>
-										<v-list-item-subtitle>Sub</v-list-item-subtitle>
-									</v-list-item-content>
-								</v-list-item>
-							</template>
+										<v-list-item-content>
+											<v-list-item-title><?= $blog->title ?></v-list-item-title>
+											<v-list-item-subtitle><?= strip_tags(character_limiter($blog->body,50)); ?></v-list-item-subtitle>
+										</v-list-item-content>
+									</v-list-item>
+								</template>
+							<?php endforeach ?>
 						</v-list>
 					</v-card-text>
 				</v-card>

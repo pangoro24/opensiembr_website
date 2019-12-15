@@ -14,6 +14,8 @@ import $ from 'jquery';
 // IMPORTS COMPONENTS
 import menu_principal from "./components/Menu";
 import all_blog from "./components/all_blog";
+import edit_blog from "./components/edit_blog";
+import edit_user from "./components/edit_user";
 
 Vue.use(Vuetify);
 Vue.use( CKEditor );
@@ -23,7 +25,9 @@ var app = new Vue({
 	vuetify: new Vuetify(),
 	components: {
 		menu_principal,
-		all_blog
+		all_blog,
+		edit_blog,
+		edit_user
 	},
 	data: {
 		base_url: 'http://dev.opensiembro.com/api/',
@@ -146,6 +150,7 @@ var app = new Vue({
 					}
 				})
 		},
+		// BLOG
 		previewImage: function(event) {
 			// Reference to the DOM input element
 			const input = event;

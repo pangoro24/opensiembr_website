@@ -1,5 +1,8 @@
 @import "how-to-work";
 @import "blog";
+a{
+	text-decoration:none;
+}
 // HOME SLIDER
 .home-slider{
 	background-image: url("/assets/img/home-slider.jpg");

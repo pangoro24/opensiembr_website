@@ -21,9 +21,11 @@
 						<v-list three-line>
 							<?php foreach ($all_blogs as $blog): ?>
 								<template>
-									<v-list-item @click="">
+									<v-list-item href="<?= base_url('/blog/view/' .$blog->id) ?>" target="_blank">
 										<v-list-item-avatar>
-											<v-icon>mdi-account-circle</v-icon>
+											<v-avatar>
+												<img src="<?= base_url('/assets/blog/' . $blog->images) ?>" alt="<?= $blog->title ?>">
+											</v-avatar>
 										</v-list-item-avatar>
 
 										<v-list-item-content>

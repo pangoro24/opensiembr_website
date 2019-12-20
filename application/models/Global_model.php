@@ -11,12 +11,12 @@ class Global_model extends CI_Model {
     {
         $this->db->select('menu.*', FALSE);
         $this->db->from('menu');
-        $this->db->where('menu_slug', $uriSegment);
+        $this->db->where('slug', $uriSegment);
         $query_result = $this->db->get();
         $result       = $query_result->row();
         if ($result) {
-            $menuId[] = $result->menu_id;
-            $menuId   = $this->select_menu_by_id($result->menu_parent, $menuId);
+            $menuId[] = $result->id;
+            $menuId   = $this->select_menu_by_id($result->parent, $menuId);
         } else {
 
             return false;
@@ -24,7 +24,7 @@ class Global_model extends CI_Model {
         if (!empty($menuId)) {
             $lastId  = end($menuId);
             $parrent = $this->select_menu_first_parent($lastId);
-            array_push($menuId, $parrent->menu_parent);
+            array_push($menuId, $parrent->parent);
             return $menuId;
         }
     }
@@ -38,13 +38,13 @@ class Global_model extends CI_Model {
     {
         $this->db->select('menu.*', FALSE);
         $this->db->from('menu');
-        $this->db->where('menu_id', $id);
+        $this->db->where('id', $id);
         $query_result = $this->db->get();
         $result       = $query_result->row();
         if ($result) {
-            array_push($menuId, $result->menu_id);
-            if ($result->menu_parent != 0) {
-                $result = self::select_menu_by_id($result->menu_parent, $menuId);
+            array_push($menuId, $result->id);
+            if ($result->parent != 0) {
+                $result = self::select_menu_by_id($result->parent, $menuId);
             }
         }
         return $menuId;
@@ -58,7 +58,7 @@ class Global_model extends CI_Model {
     {
         $this->db->select('menu.*', FALSE);
         $this->db->from('menu');
-        $this->db->where('menu_id', $lastId);
+        $this->db->where('id', $lastId);
         $query_result = $this->db->get();
         $result       = $query_result->row();
         return $result;

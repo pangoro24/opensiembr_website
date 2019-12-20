@@ -177,7 +177,7 @@
 			</v-col>
 		</v-row>
 		<v-row>
-			<v-col cols="12">
+			<v-col cols="8" offset-md="2">
 				<v-expansion-panels data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
 				    <v-expansion-panel>
 				        <v-expansion-panel-header>¿Qué realmente ofrecemos?</v-expansion-panel-header>

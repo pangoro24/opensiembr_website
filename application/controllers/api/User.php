@@ -10,6 +10,20 @@ class User extends Api_Controller {
 		$this->load->model('user_model');
 	}
 
+	public function get()
+	{
+		$this->rest_api->_apiConfig([
+            'methods' => ['GET'],
+            'requireAuthorization' => false,
+        ]);
+
+		$data = [
+			'error'   => false,
+			'data' => $this->user_model->_get(),
+		];
+		json_output($data);
+	}
+
 	// CUSTOM API
 	public function put_info($id)
 	{

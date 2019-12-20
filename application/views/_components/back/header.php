@@ -1,7 +1,7 @@
 <v-app-bar app clipped-left color="#025f02" dense>
 	<v-app-bar-nav-icon color="#fff" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-	<a class="mt-1" href="<?= base_url('admin/dashboard'); ?>" title="Educontrol">
-
+	<a class="mt-1" href="<?= base_url('admin/dashboard'); ?>" title="Open Sembro">
+		<v-img width="150" src="<?= base_url('assets/img/logo-white.png') ?>"></v-img>
 	</a>
 	<v-spacer></v-spacer>
 

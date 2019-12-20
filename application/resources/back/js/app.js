@@ -14,6 +14,7 @@ import $ from 'jquery';
 // IMPORTS COMPONENTS
 import menu_principal from "./components/Menu";
 import all_blog from "./components/all_blog";
+import all_user from "./components/all_user";
 import edit_blog from "./components/edit_blog";
 import edit_user from "./components/edit_user";
 
@@ -27,7 +28,8 @@ var app = new Vue({
 		menu_principal,
 		all_blog,
 		edit_blog,
-		edit_user
+		edit_user,
+		all_user
 	},
 	data: {
 		base_url: 'http://dev.opensiembro.com/api/',

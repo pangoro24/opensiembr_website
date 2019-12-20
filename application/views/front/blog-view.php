@@ -16,7 +16,7 @@
 								<p><?= $blog->body ?></p>
 							</v-card-text>
 						</v-list-item-content>
-						<v-list-item-avatar tile size="450" color="grey">
+						<v-list-item-avatar tile size="250" color="grey">
 							<v-img src="<?= base_url('assets/blog/' .$blog->images) ?>"></v-img>
 						</v-list-item-avatar>
 					</v-list-item>

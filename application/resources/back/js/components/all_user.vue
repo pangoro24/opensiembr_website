@@ -87,7 +87,7 @@
 		methods: {
             edit: function (item)
             {
-                location.href = '/admin/user/edit/' + item;
+                location.href = '/admin/user/view/' + item;
             }
         },
     }

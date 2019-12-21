@@ -36,6 +36,8 @@ var app = new Vue({
 		// LOGIN
 		emailPhone:'',
 		password:'',
+		// HOVER
+		imagesApp: '/assets/img/screen-app/1.png',
 	},
 	methods: {
 		onScroll(e) {
@@ -82,6 +84,51 @@ var app = new Vue({
 					}
 				})
 		},
+		hoverTest: function(e)
+		{
+			switch (e) {
+				case 1: {
+					this.imagesApp = '/assets/img/screen-app/2.png';
+					break;
+				}
+				case 2: {
+					this.imagesApp = '/assets/img/screen-app/3.png';
+					break;
+				}
+				case 3: {
+					this.imagesApp = '/assets/img/screen-app/4.png';
+					break;
+				}
+				case 4: {
+					this.imagesApp = '/assets/img/screen-app/1.png';
+					break;
+				}
+				case 5: {
+					this.imagesApp = '/assets/img/screen-app/2.png';
+					break;
+				}
+				case 6: {
+					this.imagesApp = '/assets/img/screen-app/3.png';
+					break;
+				}
+				case 7: {
+					this.imagesApp = '/assets/img/screen-app/4.png';
+					break;
+				}
+				case 8: {
+					this.imagesApp = '/assets/img/screen-app/1.png';
+					break;
+				}
+				default:{
+					this.imagesApp = '/assets/img/screen-app/1.png';
+					break;
+				}
+			}
+		},
+		leaveTest: function(e)
+		{
+			this.imagesApp = '/assets/img/screen-app/1.png';
+		}
 	},
 	created() {
 		AOS.init({ disable: "phone" });

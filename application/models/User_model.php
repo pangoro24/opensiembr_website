@@ -13,6 +13,14 @@ class User_model extends CI_Model
 		return $query->result();
 	}
 
+	public function _getBy($id)
+	{
+		$this->db->from($this->tableUser);
+		$this->db->where('id', $id);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
 	public function _put($id, $data)
 	{
 		$this->db->where('id', $id);

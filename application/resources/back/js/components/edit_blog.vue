@@ -96,7 +96,7 @@
 					$this.title = blog.title;
 					$this.editorData = blog.body;
 					$this.tag = blog.tag.split(',');
-					$this.imageData = '../../../blog/' + blog.images;
+					$this.imageData = '../../../assets/blog/' + blog.images;
 					$this.id = blog.id;
 					$this.status = (blog.status === '1')? true:false;
 					console.log(blog);

@@ -54,15 +54,17 @@
 		<v-row>
 			<v-col cols="12" md="4">
 				<v-hover v-slot:default="{ hover }">
-				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
-					    <v-card-text class="text-right">
-					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-bullseye-arrow</v-icon>
-					    	<h3 :class="hover ? 'blue--text' : '' ">Todo bajo control desde cualquier parte y en cualquier todo momento</h3>
-					    </v-card-text>
-				    </v-card>
+					<div @mouseover="hoverTest(1)" @mouseleave="leaveTest(1)">
+						<v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
+							<v-card-text class="text-right">
+								<v-icon size="34" :color="hover ? 'blue': '' ">mdi-bullseye-arrow</v-icon>
+								<h3 :class="hover ? 'blue--text' : '' ">Todo bajo control desde cualquier parte y en cualquier todo momento</h3>
+							</v-card-text>
+						</v-card>
+					</div>
 				</v-hover>
 				<v-hover v-slot:default="{ hover }">
-				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
+				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3" @mouseover="hoverTest(2)" @mouseleave="leaveTest(2)">
 					    <v-card-text class="text-right">
 					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-coin-outline</v-icon>
 					    	<h3 :class="hover ? 'blue--text' : '' ">Precio accesible</h3>
@@ -70,7 +72,7 @@
 				    </v-card>
 				</v-hover>
 				<v-hover v-slot:default="{ hover }">
-				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
+				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3" @mouseover="hoverTest(3)" @mouseleave="leaveTest(3)">
 					    <v-card-text class="text-right">
 					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-buffer</v-icon>
 					    	<h3 :class="hover ? 'blue--text' : '' ">Fácil y rápida instalación</h3>
@@ -78,7 +80,7 @@
 				    </v-card>
 				</v-hover>
 				<v-hover v-slot:default="{ hover }">
-				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
+				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3" @mouseover="hoverTest(4)" @mouseleave="leaveTest(4)">
 					    <v-card-text class="text-right">
 					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-cellphone-link</v-icon>
 					    	<h3 :class="hover ? 'blue--text' : '' ">
@@ -90,12 +92,12 @@
 			</v-col>
 			<v-col cols="12" md="4">
 				<div class="text-center">
-					<v-img data-aos="fade-up" data-aos-delay="200" data-aos-once="true" class="app" width="320" src="/assets/img/app.png" lazy-src="/assets/img/app.png">
+					<v-img data-aos="fade-up" data-aos-delay="200" data-aos-once="true" class="app" width="320" :src="imagesApp">
 				</div>
 			</v-col>
 			<v-col cols="12" md="4">
 				<v-hover v-slot:default="{ hover }">
-				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
+				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3" @mouseover="hoverTest(5)" @mouseleave="leaveTest(5)">
 					    <v-card-text class="text-left">
 					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-file-document-box-check-outline</v-icon>
 					    	<h3 :class="hover ? 'blue--text' : '' ">
@@ -105,7 +107,7 @@
 				    </v-card>
 				</v-hover>
 				<v-hover v-slot:default="{ hover }">
-				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
+				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3" @mouseover="hoverTest(6)" @mouseleave="leaveTest(6)">
 					    <v-card-text class="text-left">
 					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-numeric-0-circle-outline</v-icon>
 					    	<h3 :class="hover ? 'blue--text' : '' ">100% Gratuita</h3>
@@ -113,7 +115,7 @@
 				    </v-card>
 				</v-hover>
 				<v-hover v-slot:default="{ hover }">
-				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
+				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3" @mouseover="hoverTest(7)" @mouseleave="leaveTest(7)">
 					    <v-card-text class="text-left">
 					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-gesture-spread</v-icon>
 					    	<h3 :class="hover ? 'blue--text' : '' ">Intuitiva y amigable para el usuario</h3>
@@ -121,7 +123,7 @@
 				    </v-card>
 				</v-hover>
 				<v-hover v-slot:default="{ hover }">
-				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
+				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3" @mouseover="hoverTest(8)" @mouseleave="leaveTest(8)">
 					    <v-card-text class="text-left">
 					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-math-compass</v-icon>
 					    	<h3 :class="hover ? 'blue--text' : '' ">
@@ -254,19 +256,19 @@
 		</v-row>
 		<v-row class="text-center">
 			<v-col cols="12" md="4" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
-				<v-avatar color="indigo">
+				<v-avatar color="#4caf50">
 			      	<v-icon dark>mdi-home-variant</v-icon>
 			    </v-avatar>
 			    <p class="mt-3">Chitré, Panamá </p>
 			</v-col>
 			<v-col cols="12" md="4" data-aos="fade-up" data-aos-delay="400" data-aos-once="true">
-				<v-avatar color="indigo">
+				<v-avatar color="#4caf50">
 			      	<v-icon dark>mdi-phone</v-icon>
 			    </v-avatar>
 			    <p class="mt-3">+507 6686-5816</p>
 			</v-col>
 			<v-col cols="12" md="4" data-aos="fade-up" data-aos-delay="600" data-aos-once="true">
-				<v-avatar color="indigo">
+				<v-avatar color="#4caf50">
 			      	<v-icon dark>mdi-at</v-icon>
 			    </v-avatar>
 			    <p class="mt-3">info@opensiembro.com</p>

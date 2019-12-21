@@ -2,12 +2,14 @@
 
 class Menu
 {
+	private $table = 'menus';
+
 	public function render_menu()
 	{
 		$CI =& get_instance();
 
 		$CI->db->select('*');
-		$CI->db->from('menu');
+		$CI->db->from($this->table);
         $CI->db->order_by('sort');
         $CI->db->where('rol', $CI->session->userdata('rol'));
         // $CI->db->where('rol_school' , $CI->data_user->school_access_role_id);

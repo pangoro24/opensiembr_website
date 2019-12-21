@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Blog_model extends CI_Model
 {
-	protected $table = 'blog';
+	protected $table = 'blogs';
 
 	public function _get()
 	{
@@ -52,7 +52,7 @@ class Blog_model extends CI_Model
 				'status' => true,
 				'lang' => 'es',
 			);
-			$this->db->insert('blog', $dataDB);
+			$this->db->insert($this->table, $dataDB);
 
 			$dataReturn = [
 				'error'   => false,
@@ -74,7 +74,7 @@ class Blog_model extends CI_Model
 		if ( ! $this->upload->do_upload('file'))
 		{
 			$this->db->where('id', $id);
-			$this->db->update('blog', $data);
+			$this->db->update($this->table, $data);
 
 			$dataReturn = [
 				'error'   => false,
@@ -92,7 +92,7 @@ class Blog_model extends CI_Model
 				'images' => $this->upload->data('file_name'),
 			);
 			$this->db->where('id', $id);
-			$this->db->update('blog', $dataDB);
+			$this->db->update($this->table, $dataDB);
 
 			$dataReturn = [
 				'error'   => false,

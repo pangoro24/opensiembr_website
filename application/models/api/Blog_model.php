@@ -112,4 +112,23 @@ class Blog_model extends CI_Model
 		return $query->result();
 	}
 
+	public function _get_tag()
+	{
+		$this->db->select('tag');
+		$this->db->from($this->table);
+		$this->db->order_by('id', 'desc');
+		$this->db->limit(4);
+		$query = $this->db->get();
+		$result = $query->result();
+
+		$tags1 = '';
+		foreach ($result as $tags){
+			$tags1 .= $tags->tag .',';
+		}
+
+		$for = explode(",", $tags1);
+
+		return $tags1;
+	}
+
 }

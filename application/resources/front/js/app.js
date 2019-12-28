@@ -5,6 +5,10 @@ import '@mdi/font/css/materialdesignicons.css';
 import axios from 'axios';
 import AOS from "aos";
 import "aos/dist/aos.css";
+
+// COMPONENTS
+import all_blog from "./components/all_blog";
+
 var VueScrollTo = require('vue-scrollto');
 
 Vue.use(Vuetify);
@@ -20,7 +24,7 @@ Vue.use(VueScrollTo, {
      onCancel: false,
      x: false,
      y: true
- })
+ });
 
 var app = new Vue({
 	el: '#app',
@@ -38,6 +42,9 @@ var app = new Vue({
 		password:'',
 		// HOVER
 		imagesApp: '/assets/img/screen-app/1.png',
+	},
+	components: {
+		all_blog
 	},
 	methods: {
 		onScroll(e) {

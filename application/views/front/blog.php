@@ -10,74 +10,7 @@
 			<v-col cols="12" md="8">
 				<v-card class="mx-auto">
 				    <v-container>
-				        <v-row dense>
-				            <v-col cols="12" data-aos="fade-in" data-aos-delay="500">
-				                <v-card class="mb-5" color="#d6d6d6">
-				                    <div class="d-flex flex-no-wrap justify-space-between">
-				                        <v-avatar class="ma-3" size="125" tile>
-				                            <v-img src="https://brandongaille.com/wp-content/uploads/2019/02/35-Awesome-Agriculture-Blog-Names.png"></v-img>
-				                        </v-avatar>
-				                        <div>
-				                            <v-card-title class="headline">Lorem ipsum dolor sit amet</v-card-title>
-
-				                            <v-card-subtitle>
-				                            	Listen to your favorite artists and albums whenever and wherever, online and offline. 
-				                            	Listen to your favorite artists and albums whenever and wherever, online and offline.
-				                            	Listen to your favorite artists and albums whenever and wherever, online and offline.
-				                            </v-card-subtitle>
-				                            <v-card-actions>
-						                        <v-btn text>Ver Articulo</v-btn>
-						                    </v-card-actions>
-				                        </div>
-				                    </div>
-				                </v-card>
-
-				                <v-card class="mb-5" color="#d6d6d6">
-				                    <div class="d-flex flex-no-wrap justify-space-between">
-				                        <v-avatar class="ma-3" size="125" tile>
-				                            <v-img src="https://brandongaille.com/wp-content/uploads/2019/02/35-Awesome-Agriculture-Blog-Names.png"></v-img>
-				                        </v-avatar>
-				                        <div>
-				                            <v-card-title class="headline">Lorem ipsum dolor sit amet</v-card-title>
-
-				                            <v-card-subtitle>
-				                            	Listen to your favorite artists and albums whenever and wherever, online and offline. 
-				                            	Listen to your favorite artists and albums whenever and wherever, online and offline.
-				                            	Listen to your favorite artists and albums whenever and wherever, online and offline.
-				                            </v-card-subtitle>
-				                            <v-card-actions>
-						                        <v-btn text>Ver Articulo</v-btn>
-						                    </v-card-actions>
-				                        </div>
-				                    </div>
-				                </v-card>
-
-				                <v-card class="mb-5" color="#d6d6d6">
-				                    <div class="d-flex flex-no-wrap justify-space-between">
-				                        <v-avatar class="ma-3" size="125" tile>
-				                            <v-img src="https://brandongaille.com/wp-content/uploads/2019/02/35-Awesome-Agriculture-Blog-Names.png"></v-img>
-				                        </v-avatar>
-				                        <div>
-				                            <v-card-title class="headline">Lorem ipsum dolor sit amet</v-card-title>
-
-				                            <v-card-subtitle>
-				                            	Listen to your favorite artists and albums whenever and wherever, online and offline. 
-				                            	Listen to your favorite artists and albums whenever and wherever, online and offline.
-				                            	Listen to your favorite artists and albums whenever and wherever, online and offline.
-				                            </v-card-subtitle>
-				                            <v-card-actions>
-						                        <v-btn text>Ver Articulo</v-btn>
-						                    </v-card-actions>
-				                        </div>
-				                    </div>
-				                </v-card>
-
-				                <div class="text-center">
-								    <v-pagination :length="3"></v-pagination>
-								  </div>
-
-				            </v-col>
-				        </v-row>
+						<all_blog></all_blog>
 				    </v-container>
 				</v-card>
 			</v-col>
@@ -98,10 +31,13 @@
 				            <v-list-item-title class="headline mb-1">Post Recientes</v-list-item-title>
 				            <v-list-item>
 						      	<v-list-item-content>
-						        	<v-list-item-title>Single-line item</v-list-item-title>
-						        	<v-list-item-title>Single-line item</v-list-item-title>
-						        	<v-list-item-title>Single-line item</v-list-item-title>
-						        	<v-list-item-title>Single-line item</v-list-item-title>
+									<?php foreach ($all_blog as $last): ?>
+										<v-list-item-title>
+											<a href="<?= base_url('/blog/view/' .$last->id) ?>">
+												- <?= $last->title ?>
+											</a>
+										</v-list-item-title>
+									<?php endforeach ?>
 						      	</v-list-item-content>
 						    </v-list-item>
 				        </v-list-item-content>
@@ -113,11 +49,9 @@
 				        <v-list-item-content>
 				            <v-list-item-title class="headline mb-1">Tag</v-list-item-title>
 				            <div id="chip-usage-example" class="text-center">
-				            	<v-chip class="ma-2" color="green" text-color="white">Tags 1</v-chip>
-				            	<v-chip class="ma-2" color="green" text-color="white">Tags 2</v-chip>
-				            	<v-chip class="ma-2" color="green" text-color="white">Tags 3</v-chip>
-				            	<v-chip class="ma-2" color="green" text-color="white">Tags 4</v-chip>
-				            	<v-chip class="ma-2" color="green" text-color="white">Tags 5</v-chip>
+								<?php foreach ($all_tag as $tag): ?>
+				            		<v-chip class="ma-2" color="green" text-color="white"><?= $tag ?></v-chip>
+								<?php endforeach ?>
 				            </div>
 				        </v-list-item-content>
 				    </v-list-item>

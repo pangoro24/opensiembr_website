@@ -9,8 +9,8 @@ class Global_model extends CI_Model {
      */
     public function select_menu_by_uri($uriSegment)
     {
-        $this->db->select('menu.*', FALSE);
-        $this->db->from('menu');
+        $this->db->select('menus.*', FALSE);
+        $this->db->from('menus');
         $this->db->where('slug', $uriSegment);
         $query_result = $this->db->get();
         $result       = $query_result->row();
@@ -36,8 +36,8 @@ class Global_model extends CI_Model {
      */
     public function select_menu_by_id($id, $menuId)
     {
-        $this->db->select('menu.*', FALSE);
-        $this->db->from('menu');
+        $this->db->select('menus.*', FALSE);
+        $this->db->from('menus');
         $this->db->where('id', $id);
         $query_result = $this->db->get();
         $result       = $query_result->row();
@@ -56,8 +56,8 @@ class Global_model extends CI_Model {
      */
     public function select_menu_first_parent($lastId)
     {
-        $this->db->select('menu.*', FALSE);
-        $this->db->from('menu');
+        $this->db->select('menus.*', FALSE);
+        $this->db->from('menus');
         $this->db->where('id', $lastId);
         $query_result = $this->db->get();
         $result       = $query_result->row();

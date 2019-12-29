@@ -19,7 +19,7 @@
 				<v-card class="mx-auto" max-width="344" outlined data-aos="fade-up" data-aos-delay="200">
 				    <v-list-item>
 				        <v-list-item-content>
-				            <v-text-field label="Buscar artículo" filled rounded dense></v-text-field>
+				            <v-text-field label="Buscar artículos" filled rounded dense></v-text-field>
 				            <v-btn small>Buscar artículo</v-btn>
 				        </v-list-item-content>
 				    </v-list-item>

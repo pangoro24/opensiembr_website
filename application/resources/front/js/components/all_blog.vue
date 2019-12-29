@@ -11,8 +11,8 @@
 							<div>
 								<v-card-title class="headline">{{item.title}}</v-card-title>
 
-								<v-card-subtitle>
-									{{ item.body.substring(0,190) }}...
+								<v-card-subtitle v-html="item.body.substring(0,190)">
+
 								</v-card-subtitle>
 								<v-card-actions>
 									<v-btn small color="#4caf50" dark :href="'./blog/view/' + item.id">Ver Articulo</v-btn>

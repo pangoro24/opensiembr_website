@@ -18,22 +18,11 @@
 		        <v-btn text class="font-weight-bold" href="<?= base_url('blog') ?>">Blog</v-btn>
 		        <v-btn text class="font-weight-bold" v-scroll-to="'#help'" href="<?= base_url('#') ?>">Ayuda</v-btn>
 		    </v-toolbar-items>
+				<v-btn icon href="<?= base_url('shop') ?>">
+					<v-icon>mdi-shopping</v-icon>
+				</v-btn>
 
 		    <template v-if="$vuetify.breakpoint.smAndUp">
-
-		    	<v-menu :close-on-content-click="false" :nudge-width="200" offset-y open-on-hover transition="slide-x-transition">
-				    <template v-slot:activator="{ on }">
-				        <v-btn icon v-on="on">
-				            <v-icon>mdi-shopping</v-icon>
-				        </v-btn>
-				    </template>
-
-				    <v-card>
-				        <v-card-text>
-				        	<p>El carrito esta vacio</p>
-				        </v-card-text>
-				    </v-card>
-				</v-menu>
 		        
 		        <v-menu :close-on-content-click="false" :nudge-width="200" offset-y transition="slide-x-transition">
 				    <template v-slot:activator="{ on }">

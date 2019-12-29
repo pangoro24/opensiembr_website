@@ -17,6 +17,7 @@ import all_blog from "./components/all_blog";
 import all_user from "./components/all_user";
 import edit_blog from "./components/edit_blog";
 import edit_user from "./components/edit_user";
+import all_products from "./components/all_products";
 
 Vue.use(Vuetify);
 Vue.use( CKEditor );
@@ -29,10 +30,11 @@ var app = new Vue({
 		all_blog,
 		edit_blog,
 		edit_user,
-		all_user
+		all_user,
+		all_products
 	},
 	data: {
-		base_url: 'http://dev.opensiembro.com/api/',
+		base_url: 'http://www.opensiembro.com/api/',
 		drawer: null,
 		loading: false,
 		skeletonLoading: true,
@@ -65,7 +67,14 @@ var app = new Vue({
 		// TAG
 		tag: [],
 		items: [],
-		search: "" //sync search
+		search: "", //sync search
+		// SHOP
+		nameProduct:'',
+		sortDescription:'',
+		description: '',
+		priceProduct: '',
+		imageProduct: '',
+		tax: ['No'],
 	},
 	mounted() {
         setTimeout(() => {
@@ -73,6 +82,7 @@ var app = new Vue({
         }, 1500);
     },
 	methods: {
+		// LOGIN & REGISTER
 		login() {
 			this.loading = true;
 			const $this = this;
@@ -203,6 +213,33 @@ var app = new Vue({
 					this.search = "";
 				});
 			});
+		},
+		// SHOP
+		saveProduct() {
+			this.loading = true;
+			const $this = this;
+
+			const data_form = new FormData();
+				  data_form.append ('name', this.nameProduct);
+				  data_form.append ('sort_description', this.sortDescription);
+				  data_form.append ('description', this.description);
+				  data_form.append ('price', this.priceProduct);
+				  data_form.append ('method_pay', 0);
+				  data_form.append ('tax', this.tax);
+
+			axios.post(this.base_url + 'shop/post', data_form)
+				.then( response => {
+					console.log(response);
+					this.loading = false;
+					location.href = './products';
+				})
+				.catch( error => {
+					console.log(error.response);
+					this.loading = false;
+					$this.message = error.response.data.message;
+					$this.showError = true;
+					$this.typeError = 'error';
+				})
 		}
 	}
 });

@@ -155,7 +155,7 @@
 						<v-card-title><?= $last->title ?></v-card-title>
 
 						<v-card-text class="text--primary">
-							<p><?= strip_tags(character_limiter($last->body,150)); ?></p>
+							<p><?= strip_tags(character_limiter($last->body,120)); ?></p>
 						</v-card-text>
 						<v-divider></v-divider>
 						<v-card-actions>

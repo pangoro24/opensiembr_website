@@ -16,24 +16,96 @@ class Shop_model extends CI_Model
 		return $query->result();
 	}
 
+	public function _getBy($id)
+	{
+		$this->db->from($this->table_products);
+		$this->db->where('id', $id);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
 	public function _post()
 	{
-		$dataDB = array(
-			'name' => $this->input->post('name'),
-			'sort_description' 	=> $this->input->post('sort_description'),
-			'description' 	=> $this->input->post('description'),
-			'price' 	=> $this->input->post('price'),
-			'images' => $this->input->post('images'),
-			'method_pay' => $this->input->post('method_pay'),
-			'tax' 	=> $this->input->post('tax'),
-		);
-		$this->db->insert($this->table_products, $dataDB);
+		$config['upload_path']          = './assets/shop/';
+		$config['allowed_types']        = 'gif|jpg|jpeg|png';
+		$config['max_size']             = 2048;
+		$config['encrypt_name']         = true;
 
-		$dataReturn = [
-			'error'   => false,
-			'message' => 'El producto se ha guardado correctamente.',
-		];
-		json_output($dataReturn);
+		$this->load->library('upload', $config);
+
+		if ( ! $this->upload->do_upload('file'))
+		{
+			$error = array('error' => $this->upload->display_errors());
+			$data = [
+				'error'   => true,
+				'message' => 'Se requiere una imagen.',
+			];
+			json_output($data);
+		}
+		else
+		{
+			$data = array('upload_data' => $this->upload->data());
+
+			$dataDB = array(
+				'name' => $this->input->post('name'),
+				'sort_description' 	=> $this->input->post('sort_description'),
+				'description' 	=> $this->input->post('description'),
+				'price' 	=> $this->input->post('price'),
+				'images' => $this->upload->data('file_name'),
+				'method_pay' => $this->input->post('method_pay'),
+				'tax' 	=> $this->input->post('tax'),
+			);
+			$this->db->insert($this->table_products, $dataDB);
+
+			$dataReturn = [
+				'error'   => false,
+				'message' => 'El producto se ha guardado correctamente.',
+			];
+			json_output($dataReturn);
+		}
+	}
+
+	public function _put($id, $data)
+	{
+		$config['upload_path']          = './assets/shop/';
+		$config['allowed_types']        = 'gif|jpg|jpeg|png';
+		$config['max_size']             = 2048;
+		$config['encrypt_name']         = true;
+
+		$this->load->library('upload', $config);
+
+		if ( ! $this->upload->do_upload('file'))
+		{
+			$this->db->where('id', $id);
+			$this->db->update($this->table_products, $data);
+
+			$dataReturn = [
+				'error'   => false,
+				'message' => 'El Post se ha editado correctamente.',
+			];
+			json_output($dataReturn);
+
+		} else {
+			$data = array('upload_data' => $this->upload->data());
+
+			$dataDB = array(
+				'name' => $this->input->post('name'),
+				'sort_description'  => $this->input->post('sort_description'),
+				'description'   => $this->input->post('description'),
+				'price'   => $this->input->post('price'),
+				'method_pay'   => $this->input->post('method_pay'),
+				'tax'   => $this->input->post('tax'),
+				'images' => $this->upload->data('file_name'),
+			);
+			$this->db->where('id', $id);
+			$this->db->update($this->table_products, $dataDB);
+
+			$dataReturn = [
+				'error'   => false,
+				'message' => 'El Post se ha editado correctamente.',
+			];
+			json_output($dataReturn);
+		}
 	}
 
 	// CUSTOM MODEL

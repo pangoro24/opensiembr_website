@@ -33,4 +33,25 @@ class Shop extends Admin_Controller {
 		$this->load->view('_layouts/admin', $data);
 	}
 
+	public function edit($id)
+	{
+		$data = [
+			'title' => 'Editar Producto',
+			'section' => 'edit',
+			'data'	  => $this->user_model->info(),
+			'blog'    => $this->shop_model->_getBy($id)
+		];
+		$this->load->view('_layouts/admin', $data);
+	}
+
+	public function config()
+	{
+		$data = [
+			'title' => 'Configuración de la Tienda',
+			'section' => 'config',
+			'data'	  => $this->user_model->info(),
+		];
+		$this->load->view('_layouts/admin', $data);
+	}
+
 }

@@ -11,9 +11,16 @@
 	</v-row>
 	<v-row>
 		<v-col cols="12" class="col-md-8">
-			<h5>Reporte de Ventas</h5>
-			<h5>Reporte de Usuarios</h5>
-			<h5>Reporte de Comunidad</h5>
+			<v-skeleton-loader type="card" :loading="skeletonLoading" transition="scale-transition">
+				<v-card class="pa-5">
+					<charts_users></charts_users>
+				</v-card>
+			</v-skeleton-loader>
+			<v-skeleton-loader type="card" :loading="skeletonLoading" transition="scale-transition">
+				<v-card class="pa-5 mt-10">
+					<charts_shop></charts_shop>
+				</v-card>
+			</v-skeleton-loader>
 		</v-col>
 		<v-col cols="12" class="col-md-4">
 			<v-skeleton-loader type="list-item-avatar-three-line" :loading="skeletonLoading" transition="scale-transition">

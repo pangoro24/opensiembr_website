@@ -7,11 +7,12 @@ import '@mdi/font/css/materialdesignicons.css';
 import CKEditor from '@ckeditor/ckeditor5-vue';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-
 import axios from 'axios';
 import $ from 'jquery';
 
 // IMPORTS COMPONENTS
+import charts_users from "./components/charts_users.vue";
+import charts_shop from "./components/charts_shop";
 import menu_principal from "./components/Menu";
 import all_blog from "./components/all_blog";
 import all_user from "./components/all_user";
@@ -26,6 +27,8 @@ var app = new Vue({
 	el: '#app',
 	vuetify: new Vuetify(),
 	components: {
+		charts_users,
+		charts_shop,
 		menu_principal,
 		all_blog,
 		edit_blog,
@@ -34,7 +37,7 @@ var app = new Vue({
 		all_products
 	},
 	data: {
-		base_url: 'http://www.opensiembro.com/api/',
+		base_url: 'http://dev.opensiembro.com/api/',
 		drawer: null,
 		loading: false,
 		skeletonLoading: true,

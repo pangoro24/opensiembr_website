@@ -46,4 +46,19 @@ class Shop extends Api_Controller {
 		}
 	}
 
+	// CUSTOM API
+	public function orders_by_month()
+	{
+		$this->rest_api->_apiConfig([
+            'methods' => ['GET'],
+            'requireAuthorization' => false,
+        ]);
+
+		$data = [
+			'error'   => false,
+			'data' => $this->shop_model->order_by_month(),
+		];
+		json_output($data);
+	}
+
 }

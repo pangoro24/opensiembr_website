@@ -72,4 +72,18 @@ class User extends Api_Controller {
 		}
 	}
 
+	public function get_by_month()
+	{
+		$this->rest_api->_apiConfig([
+            'methods' => ['GET'],
+            'requireAuthorization' => false,
+        ]);
+
+		$data = [
+			'error'   => false,
+			'data' => $this->user_model->user_by_month(),
+		];
+		json_output($data);
+	}
+
 }

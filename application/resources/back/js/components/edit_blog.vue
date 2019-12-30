@@ -55,7 +55,6 @@
 	const id = window.location.href.split('/');
 
     export default {
-
     	data() {
 			return {
 				showError: false,

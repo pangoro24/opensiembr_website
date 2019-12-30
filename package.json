@@ -24,13 +24,13 @@
   "devDependencies": {
     "@mdi/font": "^4.7.95",
     "cross-env": "^6.0.3",
-    "laravel-mix": "^5.0.0",
+    "laravel-mix": "^5.0.1",
     "resolve-url-loader": "^3.1.1",
-    "sass": "^1.23.7",
+    "sass": "^1.24.0",
     "sass-loader": "^7.3.1",
-    "vue": "^2.6.10",
-    "vue-template-compiler": "^2.6.10",
-    "serialize-javascript": "^2.1.1"
+    "serialize-javascript": "^2.1.1",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^16.0.0",
@@ -39,8 +39,10 @@
     "@ckeditor/ckeditor5-vue": "^1.0.1",
     "aos": "^3.0.0-beta.6",
     "axios": "^0.19.0",
+    "chart.js": "^2.9.3",
     "jquery": "^3.4.1",
+    "vue-chartjs": "^3.5.0",
     "vue-scrollto": "^2.17.1",
-    "vuetify": "^2.1.13"
+    "vuetify": "^2.1.15"
   }
 }

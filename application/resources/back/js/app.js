@@ -21,6 +21,10 @@ import edit_user from "./components/edit_user";
 import all_products from "./components/all_products";
 import edit_product from "./components/edit_product";
 
+// CONFIG SHOP
+import delivery from "./components/config-shop/delivery";
+import taxes from "./components/config-shop/taxes";
+
 Vue.use(Vuetify);
 Vue.use( CKEditor );
 
@@ -36,7 +40,9 @@ var app = new Vue({
 		edit_user,
 		all_user,
 		all_products,
-		edit_product
+		edit_product,
+		delivery,
+		taxes
 	},
 	data: {
 		base_url: 'http://www.opensiembro.com/api/',

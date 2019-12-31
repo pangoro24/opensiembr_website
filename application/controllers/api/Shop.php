@@ -123,4 +123,52 @@ class Shop extends Api_Controller {
 		json_output($data);
 	}
 
+	// TAXES
+	public function get_taxes()
+	{
+		$this->rest_api->_apiConfig([
+            'methods' => ['GET'],
+            'requireAuthorization' => false,
+        ]);
+
+		$data = [
+			'error'   => false,
+			'data' => $this->shop_model->_get_taxes(),
+		];
+		json_output($data);
+	}
+
+	public function post_taxes()
+	{
+		$this->form_validation->set_rules('name', 'Nombre del Impuesto', 'trim|required');
+		$this->form_validation->set_rules('qty', 'Cantidad', 'trim|required');
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			$data = [
+				'error'   => true,
+				'message' => validation_errors('*','<br>'),
+			];
+			json_output($data);
+		} else {
+			$this->shop_model->_post_tax();
+		}
+	}
+
+	public function put_status_tax($id)
+	{
+		$this->shop_model->_put_status_tax($id);
+	}
+
+	// METHOD SHIPPING
+	public function get_method_shipping()
+	{
+
+	}
+
+	public function post_method_shipping()
+	{
+
+	}
+
 }

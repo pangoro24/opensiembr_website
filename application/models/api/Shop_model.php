@@ -139,6 +139,35 @@ class Shop_model extends CI_Model
 		return $data;
 	}
 
+	// TAXES
+	public function _get_taxes()
+	{
+		$this->db->from($this->table_taxes);
+		$this->db->where('status', TRUE);
+		$this->db->order_by('id', 'desc');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function _post_tax()
+	{
+		$dataDB = array(
+			'name' => $this->input->post('name'),
+			'value'  => $this->input->post('qty'),
+			'status' => true,
+		);
+		$this->db->insert($this->table_taxes, $dataDB);
+	}
+
+	public function _put_status_tax($id)
+	{
+		$dataDB = array(
+			'status' => 0,
+		);
+		$this->db->where('id', $id);
+		$this->db->update($this->table_taxes, $dataDB);
+	}
+
 }
 
 /* End of file .php */

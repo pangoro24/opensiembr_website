@@ -6,6 +6,7 @@ class Shop_model extends CI_Model
 
 	protected $table_products = 'products';
 	protected $table_taxes = 'tax';
+	protected $table_shipping = 'shippings';
 	protected $table_orders = 'orders';
 
 	public function _get()
@@ -166,6 +167,35 @@ class Shop_model extends CI_Model
 		);
 		$this->db->where('id', $id);
 		$this->db->update($this->table_taxes, $dataDB);
+	}
+
+	// SHIPPING METHOD
+	public function _get_method_shipping()
+	{
+		$this->db->from($this->table_shipping);
+		$this->db->where('status', TRUE);
+		$this->db->order_by('id', 'desc');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function _post_method_shipping()
+	{
+		$dataDB = array(
+			'name' => $this->input->post('name'),
+			'price'  => $this->input->post('price'),
+			'status' => true,
+		);
+		$this->db->insert($this->table_shipping, $dataDB);
+	}
+
+	public function _put_status_shipping($id)
+	{
+		$dataDB = array(
+			'status' => 0,
+		);
+		$this->db->where('id', $id);
+		$this->db->update($this->table_shipping, $dataDB);
 	}
 
 }

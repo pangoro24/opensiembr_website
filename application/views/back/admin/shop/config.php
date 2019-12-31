@@ -13,9 +13,7 @@
 		</v-col>
 
 		<v-col cols="6">
-			<v-card>
-				<delivery></delivery>
-			</v-card>
+			<delivery></delivery>
 		</v-col>
 	</v-row>
 

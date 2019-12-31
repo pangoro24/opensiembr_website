@@ -163,12 +163,38 @@ class Shop extends Api_Controller {
 	// METHOD SHIPPING
 	public function get_method_shipping()
 	{
+		$this->rest_api->_apiConfig([
+            'methods' => ['GET'],
+            'requireAuthorization' => false,
+        ]);
 
+		$data = [
+			'error'   => false,
+			'data' => $this->shop_model->_get_method_shipping(),
+		];
+		json_output($data);
 	}
 
 	public function post_method_shipping()
 	{
+		$this->form_validation->set_rules('name', 'Nombre del Impuesto', 'trim|required');
+		$this->form_validation->set_rules('price', 'Precio', 'trim|required');
 
+		if ($this->form_validation->run() == FALSE)
+		{
+			$data = [
+				'error'   => true,
+				'message' => validation_errors('*','<br>'),
+			];
+			json_output($data);
+		} else {
+			$this->shop_model->_post_method_shipping();
+		}
+	}
+
+	public function put_status_shipping($id)
+	{
+		$this->shop_model->_put_status_shipping($id);
 	}
 
 }

@@ -27,8 +27,10 @@ class Blog extends CI_Controller {
 
 	public function view($id)
 	{
+		$blog = $this->blog_model->_getBy($id);
+
 		$data = [
-			'title' => 'Blog',
+			'title' => $blog->title .' - Blog',
 			'description' => 'Un pequeño informativo, de las mejores notas de cultivo y mas.',
 			'section' => 'blog-view',
 			'blog' => $this->blog_model->_getBy($id),

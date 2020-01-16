@@ -10,12 +10,13 @@
 	<meta property="og:description" content="<?= $description ?>" />
 	<meta property="og:image" content="favicon.ico" />
 	<meta property="og:type" content="website" />
-	<title><?= $title ?></title>
+	<title><?= $title ?> | Open Siembro</title>
 	<style type="text/css" media="screen">
 		.body {
 			display: none;
 		}
 	</style>
+	<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5e0b65685d165f0019951b12&product=custom-share-buttons&cms=sop' async='async'></script>
 </head>
 <body>
 
@@ -35,7 +36,7 @@
 	    </v-app>
 	</div>
 
-	<script src="/assets/front/app.js" type="text/javascript"></script>
-	<link rel=stylesheet href="/assets/front/app.css">
+	<script src="<?= base_url('assets/front/app.js') ?>" type="text/javascript"></script>
+	<link rel=stylesheet href="<?= base_url('assets/front/app.css') ?>">
 </body>
 </html>

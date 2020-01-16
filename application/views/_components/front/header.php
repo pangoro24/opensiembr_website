@@ -16,7 +16,7 @@
 		        <v-btn text class="font-weight-bold" v-scroll-to="'#apps'" href="<?= base_url('#') ?>">App</v-btn>
 		        <v-btn text class="font-weight-bold" href="<?= base_url('how-to-work') ?>">Como Funciona</v-btn>
 		        <v-btn text class="font-weight-bold" href="<?= base_url('blog') ?>">Blog</v-btn>
-		        <v-btn text class="font-weight-bold" v-scroll-to="'#help'" href="<?= base_url('#') ?>">Ayuda</v-btn>
+		        <v-btn text class="font-weight-bold" href="<?= base_url('channel') ?>">Canales</v-btn>
 		    </v-toolbar-items>
 				<v-btn icon href="<?= base_url('shop') ?>">
 					<v-icon>mdi-shopping</v-icon>

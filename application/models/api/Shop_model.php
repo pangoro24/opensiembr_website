@@ -157,12 +157,29 @@ class Shop_model extends MY_Model
 
 	public function _post_tax()
 	{
-		$dataDB = array(
-			'name' => $this->input->post('name'),
-			'value'  => $this->input->post('qty'),
-			'status' => true,
-		);
-		$this->db->insert($this->table_taxes, $dataDB);
+		$count = $this->count_rows($this->table_taxes, 'status = 1');
+
+		if ($count > 0) {
+			$dataReturn = [
+				'error'   => true,
+				'message' => 'Solo se puede agregar 1 impuesto.',
+			];
+			json_output($dataReturn);
+		} else {
+			$dataDB = array(
+				'name' => $this->input->post('name'),
+				'value'  => $this->input->post('qty'),
+				'status' => true,
+			);
+			$this->db->insert($this->table_taxes, $dataDB);
+
+			// RETURN
+			$dataReturn = [
+				'error'   => false,
+				'message' => 'Se ha agregado el impuesto correctamente.',
+			];
+			json_output($dataReturn);
+		}
 	}
 
 	public function _put_status_tax($id)
@@ -216,7 +233,7 @@ class Shop_model extends MY_Model
 			'product' => $this->input->post('product'),
 			'total' 	=> $this->input->post('total'),
 		);
-		$this->_table_name = $table_orders;
+		$this->_table_name = $this->table_orders;
 		$this->_primary_key = 'id';
 		$id = $this->save($dataDB);
 

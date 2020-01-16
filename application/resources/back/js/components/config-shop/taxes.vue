@@ -15,23 +15,30 @@
 								<v-card-title>
 									<span class="headline">Agregar Impuesto</span>
 								</v-card-title>
-								<v-card-text>
-									<v-container>
-										<v-row>
-											<v-col cols="12">
-												<v-text-field v-model="name_tax" label="Nombre del Impuesto" required></v-text-field>
-											</v-col>
-											<v-col cols="12">
-												<v-text-field v-model="qty_tax" label="Cantidad" required></v-text-field>
-											</v-col>
-										</v-row>
-									</v-container>
-								</v-card-text>
-								<v-card-actions>
-									<v-spacer></v-spacer>
-									<v-btn color="blue darken-1" text @click="dialog = false">Cerrar</v-btn>
-									<v-btn color="blue darken-1" text @click="saveTax">Agregar</v-btn>
-								</v-card-actions>
+								<v-form v-on:submit.prevent="saveTax">
+									<v-card-text>
+										<v-container>
+											<v-row>
+												<v-col cols="12">
+													<v-text-field v-model="name_tax" label="Nombre del Impuesto" required></v-text-field>
+												</v-col>
+												<v-col cols="12">
+													<v-text-field v-model="qty_tax" label="Cantidad" required></v-text-field>
+												</v-col>
+											</v-row>
+											<v-row>
+												<v-col cols="12">
+													<p v-html="message"></p>
+												</v-col>
+											</v-row>
+										</v-container>
+									</v-card-text>
+									<v-card-actions>
+										<v-spacer></v-spacer>
+										<v-btn color="blue darken-1" text @click="dialog = false">Cerrar</v-btn>
+										<v-btn type="submit" color="blue darken-1" text>Agregar</v-btn>
+									</v-card-actions>
+								</v-form>
 							</v-card>
 						</v-dialog>
 					</div>
@@ -72,6 +79,7 @@
 			return {
 				dialog: false,
 				name_tax:'',
+				message: '',
 				qty_tax:'',
 				taxes: [],
 			}
@@ -93,7 +101,6 @@
 			saveTax() {
 				this.$root.loading = true;
 				const $this = this;
-				this.dialog = false;
 
 				const data_form = new FormData();
 					  data_form.append ('name', this.name_tax);
@@ -102,7 +109,7 @@
 				axios.post(this.$root.base_url + 'shop/post_taxes', data_form)
 					.then( response => {
 						$this.$root.loading = false;
-						console.log(response);
+						this.dialog = false;
 						location.reload();
 					})
 					.catch( error => {
@@ -110,7 +117,6 @@
 						$this.message = error.response.data.message;
 						$this.showError = true;
 						$this.typeError = 'error';
-						console.log(error.response);
 					})
 			},
 			deleteTax: function (item)

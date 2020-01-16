@@ -38,6 +38,7 @@ var app = new Vue({
 		drawer: null,
 		fab: false,
 		overlay: false,
+		isActive: false,
 		// LOGIN
 		emailPhone:'',
 		password:'',

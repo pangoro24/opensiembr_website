@@ -13,6 +13,7 @@ $route['blog/view/(:num)'] = 'front/blog/view/$1';
 $route['help'] = 'front/help';
 $route['shop'] = 'front/shop';
 $route['shop/product/(:num)'] = 'front/shop/product/$1';
+$route['channel'] = 'front/channel';
 
 // Config Back-End user
 $route['(:any)/config/(:any)'] = 'config/config/$2';

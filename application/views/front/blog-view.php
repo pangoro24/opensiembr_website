@@ -22,14 +22,7 @@
 					</v-list-item>
 					<v-card-actions>
 						<v-spacer></v-spacer>
-
-						<v-btn icon>
-							<v-icon>mdi-heart</v-icon>
-						</v-btn>
-
-						<v-btn icon>
-							<v-icon>mdi-share-variant</v-icon>
-						</v-btn>
+							<div class="sharethis-inline-share-buttons"></div>
 					</v-card-actions>
 				</v-card>
 			</v-col>

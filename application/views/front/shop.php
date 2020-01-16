@@ -24,7 +24,7 @@
 					<?php foreach ($products as $last): ?>
 						<v-col cols="12" md="4">
 							<v-card class="mx-auto" max-width="400">
-								<v-img class="white--text align-end" height="150px" src="https://picsum.photos/200/300">
+								<v-img class="white--text align-end" height="150px" src="<?= base_url('assets/shop/' .$last->images) ?>">
 								</v-img>
 								<v-card-subtitle class="pb-0"><b><?= $last->name ?></b> | $ <?= $last->price ?></v-card-subtitle>
 								<v-card-text class="text--primary">

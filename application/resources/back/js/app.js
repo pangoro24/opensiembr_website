@@ -20,6 +20,7 @@ import edit_blog from "./components/edit_blog";
 import edit_user from "./components/edit_user";
 import all_products from "./components/all_products";
 import edit_product from "./components/edit_product";
+import all_orders from "./components/all_orders";
 
 // CONFIG SHOP
 import delivery from "./components/config-shop/delivery";
@@ -41,11 +42,12 @@ var app = new Vue({
 		all_user,
 		all_products,
 		edit_product,
+		all_orders,
 		delivery,
-		taxes
+		taxes,
 	},
 	data: {
-		base_url: 'http://www.opensiembro.com/api/',
+		base_url: 'http://dev.opensiembro.com/api/',
 		drawer: null,
 		loading: false,
 		skeletonLoading: true,

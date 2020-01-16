@@ -5,7 +5,7 @@
                 <v-skeleton-loader type="table" :loading="this.$root.skeletonLoading" transition="scale-transition">
                     <v-card outlined elevation="4">
                         <v-card-title class="card-header">
-                            <span class="body-1">Todos los Blogs Creadoss</span>
+                            <span class="body-1">Todos los Blogs Creados</span>
                         </v-card-title>
                             <v-data-table
                                 :headers="headers"

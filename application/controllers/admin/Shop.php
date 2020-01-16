@@ -54,4 +54,17 @@ class Shop extends Admin_Controller {
 		$this->load->view('_layouts/admin', $data);
 	}
 
+	// ORDERS
+	public function view_orders($id)
+	{
+		$data = [
+			'title' => 'Ver producto',
+			'section' => 'view',
+			'data'	  => $this->user_model->info(),
+			'order' => $this->shop_model->_getBy_orders($id),
+			'product' => $this->shop_model->_getBy($this->shop_model->_getBy_orders($id)->product),
+		];
+		$this->load->view('_layouts/admin', $data);
+	}
+
 }

@@ -13,6 +13,7 @@ class Shop_model extends MY_Model
 	protected $table_shipping = 'shippings';
 	protected $table_orders = 'orders';
 
+	// PRODUCTS
 	public function _get()
 	{
 		$this->db->from($this->table_products);
@@ -215,7 +216,7 @@ class Shop_model extends MY_Model
 			'product' => $this->input->post('product'),
 			'total' 	=> $this->input->post('total'),
 		);
-		$this->_table_name = 'orders';
+		$this->_table_name = $table_orders;
 		$this->_primary_key = 'id';
 		$id = $this->save($dataDB);
 
@@ -225,6 +226,30 @@ class Shop_model extends MY_Model
 			'order' => $id
 		];
 		json_output($dataReturn);
+	}
+
+	public function _get_orders()
+	{
+		$this->db->select('orders.id as id_order, orders.name as client_name, orders.email, orders.phone, orders.product, products.*');
+		$this->db->from($this->table_orders);
+		$this->db->join($this->table_products, 'products.id = orders.product', 'left');
+		$this->db->order_by('orders.id', 'desc');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function _getBy_orders($id)
+	{
+		$this->db->from($this->table_orders);
+		$this->db->where('id', $id);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+	public function _put_order($id, $data)
+	{
+		$this->db->where('id', $id);
+		$this->db->update($this->table_orders, $data);
 	}
 
 }

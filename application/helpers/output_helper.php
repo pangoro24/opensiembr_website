@@ -33,3 +33,23 @@ if (!function_exists('pwDecrypt')) {
 		return password_verify($pwText, $pwhash);
 	}
 }
+
+if (!function_exists('status_order')) {
+	function status_order($status = null)
+	{
+		switch ($status) {
+			case 1:
+				return 'nuevo';
+				break;
+			case 2:
+				return 'procesando';
+				break;
+			case 3:
+				return 'completado';
+				break;
+			case 4:
+				return 'cancelado';
+				break;
+		}
+	}
+}

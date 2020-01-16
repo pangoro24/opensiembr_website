@@ -14,18 +14,15 @@
                                 :items-per-page="itemsPerPage"
                                 hide-default-footer
                                 class="elevation-1"
+								item-key="id_order"
                                 @page-count="pageCount = $event">
-
-								<template v-slot:item.body="{ item }">
-									<span v-html="item.body.substring(0,190)"></span>
-								</template>
 
                                 <template v-slot:item.options="{ item }">
 
                                     <v-tooltip bottom>
                                         <template v-slot:activator="{ on }">
                                             <v-btn v-on="on" text icon color="warning">
-                                                <v-icon small @click="edit(item.id)">
+                                                <v-icon small @click="edit(item.id_order)">
                                                     mdi-eye-outline
                                                 </v-icon>
                                             </v-btn>
@@ -50,6 +47,8 @@
 </template>
 
 <script>
+	import axios from 'axios';
+
     export default {
         data() {
             return {
@@ -59,11 +58,11 @@
                         text: 'Nombre del Cliente',
                         align: 'left',
                         sortable: false,
-                        value: 'title',
+                        value: 'client_name',
                     },
-                    { text: 'Producto', value: 'body' },
-                    { text: 'Precio', value: 'created_at' },
-					{ text: 'Fecha', value: 'created_at' },
+                    { text: 'Email', value: 'email' },
+                    { text: 'Teléfono', value: 'phone' },
+					{ text: 'Producto', value: 'name' },
                     { text: 'Opciones', value: 'options', sortable: false },
                 ],
                 // BD

@@ -220,4 +220,30 @@ class Shop extends Api_Controller {
 			$this->shop_model->_post_orders();
 		}
 	}
+
+	public function get_orders()
+	{
+		$this->rest_api->_apiConfig([
+            'methods' => ['GET'],
+            'requireAuthorization' => false,
+        ]);
+
+		$data = [
+			'error'   => false,
+			'data' => $this->shop_model->_get_orders(),
+		];
+		json_output($data);
+	}
+
+	public function change_status_order($status)
+	{
+		$id = $this->input->post('id_order');
+
+		$data = [
+			'status' => $status
+		];
+		$this->shop_model->_put_order($id, $data);
+
+		redirect('admin/shop/view_orders/13', 'refresh');
+	}
 }

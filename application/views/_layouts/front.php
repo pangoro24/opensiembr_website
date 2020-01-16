@@ -36,7 +36,7 @@
 	    </v-app>
 	</div>
 
-	<script src="<?= base_url('assets/front/app.js') ?>" type="text/javascript"></script>
-	<link rel=stylesheet href="<?= base_url('assets/front/app.css') ?>">
+	<script src="<?= base_url('assets/front/app.js?cb=' .date('U')) ?>') ?>" type="text/javascript"></script>
+	<link rel=stylesheet href="<?= base_url('assets/front/app.css?cb=' .date('U')) ?>') ?>">
 </body>
 </html>

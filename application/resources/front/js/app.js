@@ -8,6 +8,7 @@ import "aos/dist/aos.css";
 
 // COMPONENTS
 import all_blog from "./components/all_blog";
+import product from "./components/product";
 
 var VueScrollTo = require('vue-scrollto');
 
@@ -44,7 +45,8 @@ var app = new Vue({
 		imagesApp: '/assets/img/screen-app/1.png',
 	},
 	components: {
-		all_blog
+		all_blog,
+		product
 	},
 	methods: {
 		onScroll(e) {

@@ -23,4 +23,17 @@ class Shop extends CI_Controller {
 		$this->load->view('_layouts/front', $data);
 	}
 
+	public function product($id)
+	{
+		$product = $this->shop_model->_getBy($id);
+
+		$data = [
+			'title' => $product->name,
+			'description' => '',
+			'section' => 'product',
+			'product' => $product
+		];
+		$this->load->view('_layouts/front', $data);
+	}
+
 }

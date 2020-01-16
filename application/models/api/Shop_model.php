@@ -1,8 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Shop_model extends CI_Model
+class Shop_model extends MY_Model
 {
+
+	public $_table_name;
+    public $_order_by;
+    public $_primary_key;
 
 	protected $table_products = 'products';
 	protected $table_taxes = 'tax';
@@ -196,6 +200,31 @@ class Shop_model extends CI_Model
 		);
 		$this->db->where('id', $id);
 		$this->db->update($this->table_shipping, $dataDB);
+	}
+
+	// ORDERS
+	public function _post_orders()
+	{
+		$dataDB = array(
+			'name' => $this->input->post('name'),
+			'address' 	=> $this->input->post('address'),
+			'phone' 	=> $this->input->post('phone'),
+			'email' 	=> $this->input->post('email'),
+			'shipping' 	=> $this->input->post('shipping'),
+			'qty' => $this->input->post('qty'),
+			'product' => $this->input->post('product'),
+			'total' 	=> $this->input->post('total'),
+		);
+		$this->_table_name = 'orders';
+		$this->_primary_key = 'id';
+		$id = $this->save($dataDB);
+
+		$dataReturn = [
+			'error'   => false,
+			'message' => 'Su orden se ha guardado correctamente.',
+			'order' => $id
+		];
+		json_output($dataReturn);
 	}
 
 }

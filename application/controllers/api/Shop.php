@@ -197,4 +197,27 @@ class Shop extends Api_Controller {
 		$this->shop_model->_put_status_shipping($id);
 	}
 
+	// ORDERS
+	public function post_orders()
+	{
+		$this->form_validation->set_rules('name', 'Nombre Completo', 'trim|required');
+		$this->form_validation->set_rules('address', 'Direccion Completa', 'trim|required');
+		$this->form_validation->set_rules('phone', 'Teléfono', 'trim|required');
+		$this->form_validation->set_rules('email', 'Correo Electrónico', 'trim|required');
+		$this->form_validation->set_rules('shipping', 'Método de Envio', 'trim|required');
+		$this->form_validation->set_rules('product', 'Producto', 'trim|required');
+		$this->form_validation->set_rules('qty', 'Cantidad de producto', 'trim|required');
+		$this->form_validation->set_rules('total', 'Total', 'trim|required');
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			$data = [
+				'error'   => true,
+				'message' => validation_errors('*','<br>'),
+			];
+			json_output($data);
+		} else {
+			$this->shop_model->_post_orders();
+		}
+	}
 }

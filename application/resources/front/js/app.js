@@ -31,7 +31,7 @@ var app = new Vue({
 	el: '#app',
 	vuetify: new Vuetify(),
 	data: {
-		base_url: 'http://dev.opensiembro.com/api/',
+		base_url: 'http://www.opensiembro.com/api/',
 		typeError: '',
 		message: '',
 		showError: false,

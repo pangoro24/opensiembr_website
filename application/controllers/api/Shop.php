@@ -244,6 +244,6 @@ class Shop extends Api_Controller {
 		];
 		$this->shop_model->_put_order($id, $data);
 
-		redirect('admin/shop/view_orders/13', 'refresh');
+		redirect('admin/shop/view_orders/'.$id, 'refresh');
 	}
 }

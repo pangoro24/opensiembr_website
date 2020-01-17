@@ -167,8 +167,7 @@
         	this.get_taxes();
 		},
 		methods: {
-    		send_order()
-			{
+    		send_order() {
 				if (this.name_order && this.address_order && this.phone_order && this.radioGroup)
 				{
 					const data_form = new FormData();
@@ -197,8 +196,7 @@
 					console.log('favor complete los campos');
 				}
 			},
-			success_order()
-			{
+			success_order() {
 				this.dialog2 = false;
 				this.$refs.form.reset();
 			},
@@ -215,8 +213,7 @@
 			shipping_select(id,price) {
 				this.shipping = price;
 			},
-			total_price: function(total, qty)
-			{
+			total_price: function(total, qty) {
 				const total_price = total * qty;
 				this.priceTotal = total_price;
     			return total_price.toFixed(2);
@@ -237,13 +234,13 @@
 				this.itbms = itbms;
 				return itbms.toFixed(2);
 			},
-			total_pay: function()
-			{
+			total_pay: function() {
 				const shipping = Number(this.shipping);
 				const total_pay = shipping + this.itbms + this.priceTotal;
 				this.total_to_pay = total_pay;
 				return total_pay.toFixed(2);
 			},
+
         }
     }
 </script>

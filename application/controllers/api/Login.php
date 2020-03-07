@@ -41,8 +41,8 @@ class Login extends Api_Controller {
         ]);
 
 		$this->form_validation->set_rules('name', 'Nombre completo', 'trim|required');
-        $this->form_validation->set_rules('phone', 'Teléfono', 'trim|required');
-        $this->form_validation->set_rules('email', 'Correo Electrónico', 'trim|required|valid_email');
+        $this->form_validation->set_rules('phone', 'Teléfono', 'trim|required|is_unique[users.phone]');
+        $this->form_validation->set_rules('email', 'Correo Electrónico', 'trim|required|valid_email|is_unique[users.email]');
         $this->form_validation->set_rules('password', 'Contraseña', 'trim|required|min_length[8]');
 
         if ($this->form_validation->run() == FALSE)

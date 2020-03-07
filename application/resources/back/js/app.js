@@ -150,7 +150,7 @@ var app = new Vue({
 					$this.phone = '';
 					$this.email = '';
 					$this.password = '';
-					// console.log(response);
+					window.location.href = './login';
 				})
 				.catch(error => {
 					this.loading = false;

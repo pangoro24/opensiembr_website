@@ -17,9 +17,10 @@
 			<!-- ########## START: CONTENT ########## -->
 			<v-content>
 				<?php
+					$rolUser = $this->uri->segment(1);
 					$folder = $this->uri->segment(2);
 				?>
-				<?php $this->load->view('back/admin/' .$folder .'/' .$section); ?>
+				<?php $this->load->view('back/'.$rolUser.'/' .$folder .'/' .$section); ?>
 			</v-content>
 			<!-- ########## END: CONTENT ########## -->
 		</v-app>

@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Config extends My_BackController {
+class Dashboard extends User_Controller {
 
-	public function edit()
+	public function index()
 	{
 		$data = [
 			'title' => 'Dashboard',
-			'section' => 'edit',
+			'section' => 'dashboard',
 			'data'	  => $this->user_model->info(),
 		];
 		$this->load->view('_layouts/admin', $data);

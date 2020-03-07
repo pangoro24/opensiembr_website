@@ -35,7 +35,7 @@
 							</v-card-text>
 
 							<v-card-actions>
-								<v-btn href="<?= base_url('channel/' .$last->id) ?>" text color="green accent-4">
+								<v-btn href="<?= base_url('channel/view/' .$last->id) ?>" text color="green accent-4">
 									Visitar
 								</v-btn>
 							</v-card-actions>

@@ -11,6 +11,7 @@ class Channel_model extends MY_Model
 		$this->db->select('zones.*, users.id as id_user, users.fullname, users.email');
 		$this->db->from($this->table);
 		$this->db->join('users', 'users.id = zones.user_id', 'left');
+		$this->db->where('show_web', 1);
 		$this->db->order_by('zones.id', 'desc');
 		$query = $this->db->get();
 		return $query->result();
@@ -18,8 +19,10 @@ class Channel_model extends MY_Model
 
 	public function _getBy($id)
 	{
+		$this->db->select('zones.*, users.id as id_user, users.fullname, users.email');
 		$this->db->from($this->table);
-		$this->db->where('id', $id);
+		$this->db->join('users', 'users.id = zones.user_id', 'left');
+		$this->db->where('zones.id', $id);
 		$query = $this->db->get();
 		return $query->row();
 	}

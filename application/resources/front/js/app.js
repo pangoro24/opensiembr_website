@@ -9,6 +9,7 @@ import "aos/dist/aos.css";
 // COMPONENTS
 import all_blog from "./components/all_blog";
 import product from "./components/product";
+import channel_chart from "./components/channel_chart";
 
 var VueScrollTo = require('vue-scrollto');
 
@@ -47,7 +48,8 @@ var app = new Vue({
 	},
 	components: {
 		all_blog,
-		product
+		product,
+		channel_chart
 	},
 	methods: {
 		onScroll(e) {

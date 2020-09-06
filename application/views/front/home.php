@@ -3,7 +3,7 @@
 		<?php $this->load->view('_components/front/header'); ?>
 		<section class="text-center home-slider-content">
 			<h1 data-aos="flip-up">Bienvenido a Open Siembro</h1>
-			<p data-aos="flip-up">Sistema inteligente de bajo costo para control de riego y monitoreo de siembro</p>
+			<p data-aos="flip-up">Sistema inteligente para control de riego y monitoreo de siembro</p>
 			<v-btn data-aos="fade" class="mx-2" fab dark large color="red" @click="overlay = !overlay">
 			  	<v-icon dark>mdi-play</v-icon>
 			</v-btn>
@@ -38,7 +38,7 @@
 		</v-row>
 		<v-row>
 			<v-col cols="12">
-				<v-img data-aos="fade-up" data-aos-once="true" class="app" width="100%" src="/assets/img/device-home.png">
+				<v-img data-aos="fade-up" data-aos-once="true" class="app" width="100%" src="<?= base_url('assets/img/device-home.png') ?>">
 			</v-col>
 		</v-row>
 	</v-container>

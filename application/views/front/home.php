@@ -23,7 +23,7 @@
 					<v-icon>mdi-close</v-icon>
 				</v-btn>
 				<br> <br>
-				<iframe width="560" height="315" src="https://www.youtube.com/watch?v=DgdaRYbsvUc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/DgdaRYbsvUc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</v-overlay>
 		</section>
 	</v-container>

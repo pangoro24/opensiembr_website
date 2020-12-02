@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Shop_model extends MY_Model
 {
 
+	protected $db_web;
 	public $_table_name;
     public $_order_by;
     public $_primary_key;
@@ -13,20 +14,26 @@ class Shop_model extends MY_Model
 	protected $table_shipping = 'shippings';
 	protected $table_orders = 'orders';
 
+	public function __construct()
+    {
+    	parent::__construct();
+        $this->db_web = $this->load->database('website', TRUE);
+    }
+
 	// PRODUCTS
 	public function _get()
 	{
-		$this->db->from($this->table_products);
-		$this->db->order_by('id', 'desc');
-		$query = $this->db->get();
+		$this->db_web->from($this->table_products);
+		$this->db_web->order_by('id', 'desc');
+		$query = $this->db_web->get();
 		return $query->result();
 	}
 
 	public function _getBy($id)
 	{
-		$this->db->from($this->table_products);
-		$this->db->where('id', $id);
-		$query = $this->db->get();
+		$this->db_web->from($this->table_products);
+		$this->db_web->where('id', $id);
+		$query = $this->db_web->get();
 		return $query->row();
 	}
 
@@ -61,7 +68,7 @@ class Shop_model extends MY_Model
 				'method_pay' => $this->input->post('method_pay'),
 				'tax' 	=> $this->input->post('tax'),
 			);
-			$this->db->insert($this->table_products, $dataDB);
+			$this->db_web->insert($this->table_products, $dataDB);
 
 			$dataReturn = [
 				'error'   => false,
@@ -82,8 +89,8 @@ class Shop_model extends MY_Model
 
 		if ( ! $this->upload->do_upload('file'))
 		{
-			$this->db->where('id', $id);
-			$this->db->update($this->table_products, $data);
+			$this->db_web->where('id', $id);
+			$this->db_web->update($this->table_products, $data);
 
 			$dataReturn = [
 				'error'   => false,
@@ -103,8 +110,8 @@ class Shop_model extends MY_Model
 				'tax'   => $this->input->post('tax'),
 				'images' => $this->upload->data('file_name'),
 			);
-			$this->db->where('id', $id);
-			$this->db->update($this->table_products, $dataDB);
+			$this->db_web->where('id', $id);
+			$this->db_web->update($this->table_products, $dataDB);
 
 			$dataReturn = [
 				'error'   => false,
@@ -119,10 +126,10 @@ class Shop_model extends MY_Model
 	{
 		$year = date('Y');
 
-		$this->db->from($this->table_orders);
-		$this->db->where('created_at >=', ''.$year.'-'.$date.'-01 00:00:00');
-		$this->db->where('created_at <=', ''.$year.'-'.$date.'-30 23:59:59');
-		$query = $this->db->get();
+		$this->db_web->from($this->table_orders);
+		$this->db_web->where('created_at >=', ''.$year.'-'.$date.'-01 00:00:00');
+		$this->db_web->where('created_at <=', ''.$year.'-'.$date.'-28 23:59:59');
+		$query = $this->db_web->get();
 
 		return $query->num_rows();
 	}
@@ -148,10 +155,10 @@ class Shop_model extends MY_Model
 	// TAXES
 	public function _get_taxes()
 	{
-		$this->db->from($this->table_taxes);
-		$this->db->where('status', TRUE);
-		$this->db->order_by('id', 'desc');
-		$query = $this->db->get();
+		$this->db_web->from($this->table_taxes);
+		$this->db_web->where('status', TRUE);
+		$this->db_web->order_by('id', 'desc');
+		$query = $this->db_web->get();
 		return $query->result();
 	}
 
@@ -171,7 +178,7 @@ class Shop_model extends MY_Model
 				'value'  => $this->input->post('qty'),
 				'status' => true,
 			);
-			$this->db->insert($this->table_taxes, $dataDB);
+			$this->db_web->insert($this->table_taxes, $dataDB);
 
 			// RETURN
 			$dataReturn = [
@@ -187,17 +194,17 @@ class Shop_model extends MY_Model
 		$dataDB = array(
 			'status' => 0,
 		);
-		$this->db->where('id', $id);
-		$this->db->update($this->table_taxes, $dataDB);
+		$this->db_web->where('id', $id);
+		$this->db_web->update($this->table_taxes, $dataDB);
 	}
 
 	// SHIPPING METHOD
 	public function _get_method_shipping()
 	{
-		$this->db->from($this->table_shipping);
-		$this->db->where('status', TRUE);
-		$this->db->order_by('id', 'desc');
-		$query = $this->db->get();
+		$this->db_web->from($this->table_shipping);
+		$this->db_web->where('status', TRUE);
+		$this->db_web->order_by('id', 'desc');
+		$query = $this->db_web->get();
 		return $query->result();
 	}
 
@@ -208,7 +215,7 @@ class Shop_model extends MY_Model
 			'price'  => $this->input->post('price'),
 			'status' => true,
 		);
-		$this->db->insert($this->table_shipping, $dataDB);
+		$this->db_web->insert($this->table_shipping, $dataDB);
 	}
 
 	public function _put_status_shipping($id)
@@ -216,8 +223,8 @@ class Shop_model extends MY_Model
 		$dataDB = array(
 			'status' => 0,
 		);
-		$this->db->where('id', $id);
-		$this->db->update($this->table_shipping, $dataDB);
+		$this->db_web->where('id', $id);
+		$this->db_web->update($this->table_shipping, $dataDB);
 	}
 
 	// ORDERS
@@ -247,26 +254,26 @@ class Shop_model extends MY_Model
 
 	public function _get_orders()
 	{
-		$this->db->select('orders.id as id_order, orders.name as client_name, orders.email, orders.phone, orders.product, products.*');
-		$this->db->from($this->table_orders);
-		$this->db->join($this->table_products, 'products.id = orders.product', 'left');
-		$this->db->order_by('orders.id', 'desc');
-		$query = $this->db->get();
+		$this->db_web->select('orders.id as id_order, orders.name as client_name, orders.email, orders.phone, orders.product, products.*');
+		$this->db_web->from($this->table_orders);
+		$this->db_web->join($this->table_products, 'products.id = orders.product', 'left');
+		$this->db_web->order_by('orders.id', 'desc');
+		$query = $this->db_web->get();
 		return $query->result();
 	}
 
 	public function _getBy_orders($id)
 	{
-		$this->db->from($this->table_orders);
-		$this->db->where('id', $id);
-		$query = $this->db->get();
+		$this->db_web->from($this->table_orders);
+		$this->db_web->where('id', $id);
+		$query = $this->db_web->get();
 		return $query->row();
 	}
 
 	public function _put_order($id, $data)
 	{
-		$this->db->where('id', $id);
-		$this->db->update($this->table_orders, $data);
+		$this->db_web->where('id', $id);
+		$this->db_web->update($this->table_orders, $data);
 	}
 
 }

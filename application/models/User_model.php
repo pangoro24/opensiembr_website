@@ -59,7 +59,7 @@ class User_model extends CI_Model
 
 		$this->db->from($this->tableUser);
 		$this->db->where('created_at >=', ''.$year.'-'.$date.'-01 00:00:00');
-		$this->db->where('created_at <=', ''.$year.'-'.$date.'-30 23:59:59');
+		$this->db->where('created_at <=', ''.$year.'-'.$date.'-28 23:59:59');
 		$query = $this->db->get();
 
 		return $query->num_rows();

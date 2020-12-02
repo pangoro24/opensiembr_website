@@ -47,6 +47,7 @@ var app = new Vue({
 		taxes,
 	},
 	data: {
+		// base_url: 'http://opensiembro.local.com/api/',
 		base_url: 'http://www.opensiembro.com/api/',
 		drawer: null,
 		loading: false,

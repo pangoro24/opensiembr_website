@@ -2757,13 +2757,13 @@
  */
 
 /*!
- * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.md.
- */
-
-/*!
  * Chart.js v2.9.3
  * https://www.chartjs.org
  * (c) 2019 Chart.js Contributors
  * Released under the MIT License
+ */
+
+/*!
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md.
  */

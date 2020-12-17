@@ -240,14 +240,14 @@ class Shop_model extends MY_Model
 			'product' => $this->input->post('product'),
 			'total' 	=> $this->input->post('total'),
 		);
-		$this->_table_name = $this->table_orders;
-		$this->_primary_key = 'id';
-		$id = $this->save($dataDB);
+		$this->db_web->insert($this->table_orders, $dataDB);
+		$id_order = $this->db_web->insert_id();
+
 
 		$dataReturn = [
 			'error'   => false,
 			'message' => 'Su orden se ha guardado correctamente.',
-			'order' => $id
+			'order' => $id_order
 		];
 		json_output($dataReturn);
 	}

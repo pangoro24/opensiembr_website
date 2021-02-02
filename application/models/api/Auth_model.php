@@ -35,7 +35,7 @@ class Auth_model extends CI_Model
 		$query = $this->db->get();
 
 		if ($query->data_seek()) {
-			$returnEmail = ($query->data_seek())? 'email' : $queryPhone->data_seek() ;
+			$returnEmail = ($query->data_seek())? 'email' : $query->data_seek() ;
 			return $returnEmail;
 		} else {
 			$this->db->select('*');
@@ -71,7 +71,7 @@ class Auth_model extends CI_Model
 	{
 		if ($verify) {
 			// QUERY DATABASE
-			$this->db->select('users.role_id, users.email, roles.*');
+			$this->db->select('users.role_id, users.email, users.fullname, roles.*');
 			$this->db->from('users');
 			$this->db->join('roles', 'roles.id = users.role_id', 'left');
 			$this->db->where('users.'.$type, $emailPhone);
@@ -82,7 +82,9 @@ class Auth_model extends CI_Model
 			$sessionData = array(
 				'id' => $row->id,
 				'email_user'   => $row->email,
+				'fullname' => $row->fullname,
 				'rol'       => $row->role_id,
+				'rol_slug' => $row->slug,
 				'logged_in' => TRUE,
 			);
 			$this->session->set_userdata($sessionData);

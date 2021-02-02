@@ -38,7 +38,7 @@
 		</v-row>
 		<v-row>
 			<v-col cols="12">
-				<v-img data-aos="fade-up" data-aos-once="true" class="app" width="100%" src="<?= base_url('assets/img/device-home_new.png') ?>">
+				<v-img data-aos="fade-up" data-aos-once="true" class="app" width="100%" src="<?= base_url('assets/img/device-home_new.jpg') ?>">
 			</v-col>
 		</v-row>
 	</v-container>

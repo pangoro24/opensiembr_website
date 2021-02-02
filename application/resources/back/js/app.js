@@ -25,6 +25,7 @@ import all_orders from "./components/all_orders";
 // CONFIG SHOP
 import delivery from "./components/config-shop/delivery";
 import taxes from "./components/config-shop/taxes";
+import pay_method from "./components/config-shop/payMethod";
 
 Vue.use(Vuetify);
 Vue.use( CKEditor );
@@ -45,6 +46,7 @@ var app = new Vue({
 		all_orders,
 		delivery,
 		taxes,
+		pay_method
 	},
 	data: {
 		// base_url: 'http://opensiembro.local.com/api/',

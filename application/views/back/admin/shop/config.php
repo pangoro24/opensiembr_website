@@ -8,12 +8,16 @@
 	</v-row>
 
 	<v-row>
-		<v-col cols="6">
+		<v-col cols="6" sm="6" md="6">
 			<taxes></taxes>
 		</v-col>
 
-		<v-col cols="6">
+		<v-col cols="6" sm="6" md="6">
 			<delivery></delivery>
+		</v-col>
+
+		<v-col cols="12" sm="12" md="12">
+			<pay_method></pay_method>
 		</v-col>
 	</v-row>
 

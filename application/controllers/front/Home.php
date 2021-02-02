@@ -12,7 +12,7 @@ class Home extends CI_Controller {
 
 		$data = [
 		    'title' => 'Open Siembro',
-		    'description' => 'Sistema inteligente de bajo costo para control de riego y monitoreo de siembro.',
+		    'description' => 'Controlador inteligente de bajo costo monitoreo y riego automatizado de cultivos',
 		    'section' => 'home',
 			'blog' => $this->blog_model->_get_limit(3),
 		];

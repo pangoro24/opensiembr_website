@@ -32,8 +32,8 @@ var app = new Vue({
 	el: '#app',
 	vuetify: new Vuetify(),
 	data: {
-		base_url: 'http://opensiembro.local.com/api/',
-		// base_url: 'http://www.opensiembro.com/api/',
+		// base_url: 'http://opensiembro.local.com/api/',
+		base_url: 'http://www.opensiembro.com/api/',
 		typeError: '',
 		message: '',
 		showError: false,

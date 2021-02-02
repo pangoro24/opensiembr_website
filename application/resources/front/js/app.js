@@ -32,8 +32,8 @@ var app = new Vue({
 	el: '#app',
 	vuetify: new Vuetify(),
 	data: {
-		// base_url: 'http://opensiembro.local.com/api/',
-		base_url: 'http://www.opensiembro.com/api/',
+		base_url: 'http://opensiembro.local.com/api/',
+		// base_url: 'http://www.opensiembro.com/api/',
 		typeError: '',
 		message: '',
 		showError: false,
@@ -101,39 +101,39 @@ var app = new Vue({
 		{
 			switch (e) {
 				case 1: {
-					this.imagesApp = '/assets/img/screen-app/2.png';
+					this.imagesApp = '/assets/img/screen-app/1.png';
 					break;
 				}
 				case 2: {
-					this.imagesApp = '/assets/img/screen-app/3.png';
-					break;
-				}
-				case 3: {
-					this.imagesApp = '/assets/img/screen-app/4.png';
-					break;
-				}
-				case 4: {
-					this.imagesApp = '/assets/img/screen-app/1.png';
-					break;
-				}
-				case 5: {
 					this.imagesApp = '/assets/img/screen-app/2.png';
 					break;
 				}
-				case 6: {
+				case 3: {
 					this.imagesApp = '/assets/img/screen-app/3.png';
 					break;
 				}
-				case 7: {
+				case 4: {
 					this.imagesApp = '/assets/img/screen-app/4.png';
 					break;
 				}
-				case 8: {
+				case 5: {
+					this.imagesApp = '/assets/img/screen-app/5.png';
+					break;
+				}
+				case 6: {
+					this.imagesApp = '/assets/img/screen-app/6.png';
+					break;
+				}
+				case 7: {
 					this.imagesApp = '/assets/img/screen-app/1.png';
 					break;
 				}
+				case 8: {
+					this.imagesApp = '/assets/img/screen-app/2.png';
+					break;
+				}
 				default:{
-					this.imagesApp = '/assets/img/screen-app/1.png';
+					this.imagesApp = '/assets/img/screen-app/3.png';
 					break;
 				}
 			}

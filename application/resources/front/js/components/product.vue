@@ -6,106 +6,105 @@
 					<v-icon dark v-on="on">mdi-cart-plus</v-icon>
 				</v-btn>
 			</template>
-			<v-form ref="form" v-on:submit.prevent="send_order">
 				<v-snackbar v-model="snackbar">
 					Por favor complete los siguientes campos
 					<v-btn color="primary" text @click="snackbar = false">
 						Cerrar
 					</v-btn>
 				</v-snackbar>
-				<v-card>
-					<v-toolbar dark color="green">
-						<v-btn icon dark @click="dialog = false">
-							<v-icon>mdi-close</v-icon>
-						</v-btn>
-						<v-toolbar-title>Realizar Pedido</v-toolbar-title>
-						<v-spacer></v-spacer>
-						<v-toolbar-items>
-							<v-btn type="submit" dark text>
-								Hacer Pedido
-								<v-icon dark>mdi-send-outline</v-icon>
+				<v-card class="mt-5">
+					<v-form ref="form" v-on:submit.prevent="send_order">
+						<v-toolbar dark color="green">
+							<v-btn icon dark @click="dialog = false">
+								<v-icon>mdi-close</v-icon>
 							</v-btn>
-						</v-toolbar-items>
-					</v-toolbar>
-					<v-container>
-						<v-row>
-							<v-col cols="12">
-								<v-text-field type="text" v-model="name_order" :rules="[() => !!name_order || 'Este campo es requerido']" label="Nombre completo" outlined required></v-text-field>
-								<v-text-field type="text" v-model="address_order" :rules="[() => !!address_order || 'Este campo es requerido']" label="Dirección completa de envio" outlined required></v-text-field>
-								<v-text-field type="email" v-model="email_order" :rules="emailRules" label="Correo Electrónico" outlined required></v-text-field>
-								<v-text-field type="number" v-model="phone_order" :rules="[() => !!phone_order || 'Este campo es requerido']" label="Celular" outlined required></v-text-field>
-								<v-divider></v-divider>
-								<br>
-								<v-row>
-									<v-col cols="6">
-										<h4>Seleccione un método de envio</h4>
-										<v-radio-group v-model="radioGroup">
-											<v-radio @change="shipping_select(n.id, n.price)" v-for="n in sender" :key="n.id" :label="`${n.name} ${n.price}`" :value="n.id"></v-radio>
-										</v-radio-group>
-									</v-col>
-									<v-col cols="6">
-										<h4>Cantidad</h4>
-										<br>
-										<v-text-field type="number" v-model="qty_order" label="Cantidad del producto" outlined></v-text-field>
-									</v-col>
-								</v-row>
-								<v-divider></v-divider>
-								<br>
-								<v-simple-table>
-									<template v-slot:default>
-										<thead>
-										<tr>
-											<th class="text-left">Qty</th>
-											<th class="text-left">Descripción</th>
-											<th class="text-left">Precio/U</th>
-											<th class="text-left">Total</th>
-										</tr>
-										</thead>
-										<tbody>
-										<tr>
-											<td>{{ qty_order }}</td>
-											<td>{{ name_product }} : {{ description_product }}</td>
-											<td>$ {{ price }}</td>
-											<td>$ {{ total_price(price,qty_order) }}</td>
-										<tr>
-										<tr>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-										</tr>
-										<tr>
-											<td></td>
-											<td></td>
-											<td class="text-right"><b>Sub-Total:</b></td>
-											<td>$ {{ total_price(price,qty_order) }}</td>
-										</tr>
-										<tr>
-											<td></td>
-											<td></td>
-											<td class="text-right"><b>Cargos Adicionales:</b></td>
-											<td>$ {{ shipping }}</td>
-										</tr>
-										<tr>
-											<td></td>
-											<td></td>
-											<td class="text-right"><b>ITBMS:</b></td>
-											<td>$ {{ total_itbms() }}</td>
-										</tr>
-										<tr>
-											<td></td>
-											<td></td>
-											<td class="text-right"><b>Total a Pagar:</b></td>
-											<td> <b>$ {{ total_pay() }}</b></td>
-										</tr>
-										</tbody>
-									</template>
-								</v-simple-table>
-							</v-col>
-						</v-row>
-					</v-container>
+							<v-toolbar-title>Realizar Pedido</v-toolbar-title>
+							<v-spacer></v-spacer>
+							<v-toolbar-items>
+								<v-btn type="submit" :loading="loading" dark text>
+									Hacer Pedido
+									<v-icon dark>mdi-send-outline</v-icon>
+								</v-btn>
+							</v-toolbar-items>
+						</v-toolbar>
+						<v-container>
+							<v-row>
+								<v-col cols="6">
+									<v-text-field type="text" v-model="name_order" :rules="[() => !!name_order || 'Este campo es requerido']" label="Nombre completo" outlined required></v-text-field>
+									<v-text-field type="text" v-model="address_order" :rules="[() => !!address_order || 'Este campo es requerido']" label="Dirección completa de envio" outlined required></v-text-field>
+									<v-text-field type="email" v-model="email_order" :rules="emailRules" label="Correo Electrónico" outlined required></v-text-field>
+									<v-text-field type="number" v-model="phone_order" :rules="[() => !!phone_order || 'Este campo es requerido']" label="Celular" outlined required></v-text-field>
+								</v-col>
+								<v-col cols="6">
+									<h4>Seleccione un método de envio</h4>
+									<v-radio-group v-model="radioGroup">
+										<v-radio @change="shipping_select(n.id, n.price)" v-for="n in sender" :key="n.id" :label="`${n.name} ${n.price}`" :value="n.id"></v-radio>
+									</v-radio-group>
+									<h4>Seleccione un método de pago</h4>
+									<v-radio-group v-model="radioGroup2">
+										<v-radio v-for="n in methods" :key="n.id" :label="`${n.name} || ${n.description}`" :value="n.id"></v-radio>
+									</v-radio-group>
+								</v-col>
+								<v-col cols="12">
+									<v-divider></v-divider>
+									<br>
+									<v-simple-table>
+										<template v-slot:default>
+											<thead>
+											<tr>
+												<th class="text-left">Qty</th>
+												<th class="text-left">Descripción</th>
+												<th class="text-left">Precio/U</th>
+												<th class="text-left">Total</th>
+											</tr>
+											</thead>
+											<tbody>
+											<tr>
+												<td>
+													<v-text-field type="number" v-model="qty_order" style="width: 100px"></v-text-field>
+												</td>
+												<td>{{ name_product }} : {{ description_product }}</td>
+												<td>$ {{ price }}</td>
+												<td>$ {{ total_price(price,qty_order) }}</td>
+											<tr>
+											<tr>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+											</tr>
+											<tr>
+												<td></td>
+												<td></td>
+												<td class="text-right"><b>Sub-Total:</b></td>
+												<td>$ {{ total_price(price,qty_order) }}</td>
+											</tr>
+											<tr>
+												<td></td>
+												<td></td>
+												<td class="text-right"><b>Cargos Adicionales:</b></td>
+												<td>$ {{ shipping }}</td>
+											</tr>
+											<tr>
+												<td></td>
+												<td></td>
+												<td class="text-right"><b>ITBMS:</b></td>
+												<td>$ {{ total_itbms() }}</td>
+											</tr>
+											<tr>
+												<td></td>
+												<td></td>
+												<td class="text-right"><b>Total a Pagar:</b></td>
+												<td> <b>$ {{ total_pay() }}</b></td>
+											</tr>
+											</tbody>
+										</template>
+									</v-simple-table>
+								</v-col>
+							</v-row>
+						</v-container>
+					</v-form>
 				</v-card>
-			</v-form>
 		</v-dialog>
 		<v-dialog v-model="dialog2" persistent width="500">
 			<v-card>
@@ -149,7 +148,9 @@
 				address_order:'',
 				phone_order:'',
 				radioGroup:'',
+				radioGroup2: '',
 				sender:[],
+				methods: [],
 				shipping:0,
 				priceTotal: 0,
 				itbms:0,
@@ -165,17 +166,25 @@
 		mounted() {
         	this.get_shipping();
         	this.get_taxes();
+        	this.getMethod();
+		},
+		watch: {
+    		dialog() {
+    			this.qty_order = 1
+			}
 		},
 		methods: {
     		send_order() {
-				if (this.name_order && this.address_order && this.phone_order && this.radioGroup)
+				if (this.name_order && this.address_order && this.phone_order && this.radioGroup && this.radioGroup2)
 				{
+					this.loading = true
 					const data_form = new FormData();
 						data_form.append ('name', this.name_order);
 						data_form.append ('address', this.address_order);
 						data_form.append ('phone', this.phone_order);
 						data_form.append ('email', this.email_order);
 						data_form.append ('shipping', this.radioGroup);
+						data_form.append ('method', this.radioGroup2);
 						data_form.append ('qty', this.qty_order);
 						data_form.append ('product', 1);
 						data_form.append ('total', this.total_to_pay);
@@ -187,9 +196,11 @@
 							this.dialog = false;
 							this.dialog2 = true;
 							this.id_order = res.data.order;
+							this.loading = false
 						})
 						.catch(err => {
 							console.error(err);
+							this.loading = false
 						});
 				} else {
 					this.snackbar = true;
@@ -240,6 +251,16 @@
 				this.total_to_pay = total_pay;
 				return total_pay.toFixed(2);
 			},
+			getMethod() {
+				axios.get(this.$root.base_url + 'shop/get_payment_method')
+				.then(res => {
+					const datos = res.data.data;
+					this.methods = datos;
+				})
+				.catch(err => {
+					console.error(err);
+				})
+			}
 
         }
     }

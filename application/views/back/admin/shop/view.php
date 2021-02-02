@@ -18,20 +18,16 @@
 				Teléfono: <?= $order->phone ?> <br>
 				Dirección: <?= $order->address ?>
 			</p>
-		</v-col>
-
-		<v-col cols="12" md="6">
 			<h4>Información del pedido</h4>
 			<hr>
-			<br>
 			<p>
-				Estado del Pedido: <?= status_order($order->status) ?><br>
-				Produto: <?= $product->name ?><br>
+				Estado del Pedido: <b><?= status_order($order->status) ?></b><br>
+				Produto: <b><?= $product->name ?></b><br>
 				Cantidad: <?= $order->qty ?><br>
-				Método de envio: <?= $order->shipping ?><br>
-				Total: <?= $order->total ?>
+				Método de envio: <b><?= $order->shipping_name ?></b><br>
+				Método de pago: <b><?= $order->method_name ?></b><br>
+				Total: $<b><?= $order->total ?></b>
 			</p>
-
 			<v-row>
 				<v-col cols="6">
 					<v-form v-if="<?= $order->status ?> === 1" method="post" action="<?= base_url('api/shop/change_status_order/2') ?>">
@@ -59,8 +55,9 @@
 					</v-form>
 				</v-col>
 			</v-row>
+		</v-col>
 
-			<br><br><br>
+		<v-col cols="12" md="6">
 			<h4>Detalle del producto</h4>
 			<hr>
 			<br>

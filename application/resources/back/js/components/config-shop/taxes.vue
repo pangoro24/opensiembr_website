@@ -7,7 +7,7 @@
 						<b>IMPUESTOS</b>
 						<v-dialog v-model="dialog" persistent max-width="600px">
 							<template v-slot:activator="{ on }">
-								<v-btn text icon color="green" v-on="on">
+								<v-btn v-if="taxes.length === 0" text icon color="green" v-on="on">
 									<v-icon>mdi-plus-circle-outline</v-icon>
 								</v-btn>
 							</template>
@@ -23,12 +23,19 @@
 													<v-text-field v-model="name_tax" label="Nombre del Impuesto" required></v-text-field>
 												</v-col>
 												<v-col cols="12">
-													<v-text-field v-model="qty_tax" label="Cantidad" required></v-text-field>
+													<v-text-field v-model="qty_tax" label="Cantidad" hint="ejemplo: 0.07" required></v-text-field>
 												</v-col>
 											</v-row>
 											<v-row>
 												<v-col cols="12">
-													<p v-html="message"></p>
+													<v-alert
+														v-if="message !== ''"
+														border="top"
+														color="red lighten-2"
+														dark
+													>
+														{{ message }}
+													</v-alert>
 												</v-col>
 											</v-row>
 										</v-container>
@@ -107,7 +114,7 @@
 					  data_form.append ('qty', this.qty_tax);
 
 				axios.post(this.$root.base_url + 'shop/post_taxes', data_form)
-					.then( response => {
+					.then(response => {
 						$this.$root.loading = false;
 						this.dialog = false;
 						location.reload();
@@ -117,6 +124,9 @@
 						$this.message = error.response.data.message;
 						$this.showError = true;
 						$this.typeError = 'error';
+						setTimeout(() => {
+							$this.message = ''
+						}, 1500)
 					})
 			},
 			deleteTax: function (item)

@@ -164,7 +164,10 @@ class Shop_model extends MY_Model
 
 	public function _post_tax()
 	{
-		$count = $this->count_rows($this->table_taxes, 'status = 1');
+		$this->db_web->from($this->table_taxes);
+		$this->db_web->where('status', 1);
+		$query = $this->db_web->get();
+		$count = $query->num_rows();
 
 		if ($count > 0) {
 			$dataReturn = [
@@ -236,9 +239,11 @@ class Shop_model extends MY_Model
 			'phone' 	=> $this->input->post('phone'),
 			'email' 	=> $this->input->post('email'),
 			'shipping' 	=> $this->input->post('shipping'),
+			'method' 	=> $this->input->post('method'),
 			'qty' => $this->input->post('qty'),
 			'product' => $this->input->post('product'),
 			'total' 	=> $this->input->post('total'),
+			'status' 	=> 1,
 		);
 		$this->db_web->insert($this->table_orders, $dataDB);
 		$id_order = $this->db_web->insert_id();
@@ -264,8 +269,11 @@ class Shop_model extends MY_Model
 
 	public function _getBy_orders($id)
 	{
+		$this->db_web->select('orders.*, payment_methods.name as method_name, shippings.name as shipping_name');
 		$this->db_web->from($this->table_orders);
-		$this->db_web->where('id', $id);
+		$this->db_web->join('payment_methods', 'payment_methods.id = orders.method', 'left');
+		$this->db_web->join('shippings', 'shippings.id = orders.shipping', 'left');
+		$this->db_web->where('orders.id', $id);
 		$query = $this->db_web->get();
 		return $query->row();
 	}
@@ -274,6 +282,42 @@ class Shop_model extends MY_Model
 	{
 		$this->db_web->where('id', $id);
 		$this->db_web->update($this->table_orders, $data);
+	}
+
+	// PAYMENT METHODS
+	public function _get_payment_method()
+	{
+		$this->db_web->from('payment_methods');
+		$this->db_web->where('status', 1);
+		$query = $this->db_web->get();
+
+		return $query->result();
+	}
+
+	public function _post_payment_method()
+	{
+		$dataDB = array(
+			'name' => $this->input->post('name_method'),
+			'description' => $this->input->post('description_method'),
+			'status' => true,
+		);
+		$this->db_web->insert('payment_methods', $dataDB);
+
+		// RETURN
+		$dataReturn = [
+			'error' => false,
+			'message' => 'Se ha agregado el impuesto correctamente.',
+		];
+		json_output($dataReturn);
+	}
+
+	public function _delete_payment_method($id)
+	{
+		$dataDB = array(
+			'status' => 0,
+		);
+		$this->db_web->where('id', $id);
+		$this->db_web->update('payment_methods', $dataDB);
 	}
 
 }

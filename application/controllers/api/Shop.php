@@ -205,6 +205,7 @@ class Shop extends Api_Controller {
 		$this->form_validation->set_rules('phone', 'Teléfono', 'trim|required');
 		$this->form_validation->set_rules('email', 'Correo Electrónico', 'trim|required');
 		$this->form_validation->set_rules('shipping', 'Método de Envio', 'trim|required');
+		$this->form_validation->set_rules('method', 'Método de pago', 'trim|required');
 		$this->form_validation->set_rules('product', 'Producto', 'trim|required');
 		$this->form_validation->set_rules('qty', 'Cantidad de producto', 'trim|required');
 		$this->form_validation->set_rules('total', 'Total', 'trim|required');
@@ -217,6 +218,15 @@ class Shop extends Api_Controller {
 			];
 			json_output($data);
 		} else {
+			$email_client = $this->input->post('email');
+			// SEND EMAIL
+			$this->load->library('email');
+			$this->email->from('info@opensiembro.com', 'OpenSiembro');
+			$this->email->to($email_client);
+			$this->email->subject('Pedido realizado');
+			$this->email->message('Hola, tu pedido ha sido realizado con éxito, en breve uno de nuestros agentes de openSiembro se le estará contactando.');
+			$this->email->send();
+			// SAVE DATA
 			$this->shop_model->_post_orders();
 		}
 	}
@@ -245,5 +255,43 @@ class Shop extends Api_Controller {
 		$this->shop_model->_put_order($id, $data);
 
 		redirect('admin/shop/view_orders/'.$id, 'refresh');
+	}
+
+	// PAYMENT METHODS
+	public function get_payment_method()
+	{
+		$this->rest_api->_apiConfig([
+            'methods' => ['GET'],
+            'requireAuthorization' => false,
+        ]);
+
+		$data = [
+			'error'   => false,
+			'data' => $this->shop_model->_get_payment_method(),
+		];
+		json_output($data);
+	}
+
+	public function post_payment_method()
+	{
+		$this->form_validation->set_rules('name_method', 'Nombre del método', 'trim|required');
+		$this->form_validation->set_rules('description_method', 'Descripción del metodo', 'trim|required');
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			$data = [
+				'error'   => true,
+				'message' => validation_errors('*','<br>'),
+			];
+			json_output($data);
+		} else {
+			$this->shop_model->_post_payment_method();
+		}
+
+	}
+
+	public function delete_payment_method($id)
+	{
+		$this->shop_model->_delete_payment_method($id);
 	}
 }

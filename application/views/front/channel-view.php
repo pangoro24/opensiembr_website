@@ -1,10 +1,10 @@
-<v-content class="header-channel">
+<v-main class="header-channel">
 	<v-container>
 		<?php $this->load->view('_components/front/header'); ?>
 	</v-container>
-</v-content>
+</v-main>
 
-<v-content>
+<v-main>
 	<v-container>
 		<v-row>
 			<v-col cols="8">
@@ -25,4 +25,4 @@
 			</v-col>
 		</v-row>
 	</v-container>
-</v-content>
+</v-main>

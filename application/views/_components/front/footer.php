@@ -1,4 +1,4 @@
-<v-content class="footer">
+<v-main class="footer">
 	<v-container>
 		<v-row>
 			<v-col cols="12" md="3">
@@ -32,9 +32,9 @@
 			</v-col>
 		</v-row>
 	</v-container>
-</v-content>
+</v-main>
 
-<v-content>
+<v-main>
 	<v-container>
 		<v-row>
 			<v-col class="text-center caption" cols="12">
@@ -42,4 +42,4 @@
 			</v-col>
 		</v-row>
 	</v-container>
-</v-content>
+</v-main>

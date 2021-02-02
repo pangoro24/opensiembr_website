@@ -15,13 +15,13 @@
 			<!-- ########## END: HEADER ########## -->
 
 			<!-- ########## START: CONTENT ########## -->
-			<v-content>
+			<v-main>
 				<?php
 					$rolUser = $this->uri->segment(1);
 					$folder = $this->uri->segment(2);
 				?>
 				<?php $this->load->view('back/'.$rolUser.'/' .$folder .'/' .$section); ?>
-			</v-content>
+			</v-main>
 			<!-- ########## END: CONTENT ########## -->
 		</v-app>
 	</div>

@@ -21,7 +21,7 @@
 
 	<div id="app">
 		<v-app class="body">
-		    <v-content class="bg-soon text-center">
+		    <v-main class="bg-soon text-center">
 		        <v-container class="fill-height">
 		        	<v-row>
 		        		<v-col cols="12">
@@ -51,7 +51,7 @@
 		        		</v-col>
 		        	</v-row>
 		        </v-container>
-		    </v-content>
+		    </v-main>
 	    </v-app>
 	</div>
 

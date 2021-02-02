@@ -1,4 +1,4 @@
-<v-content class="home-slider">
+<v-main class="home-slider">
 	<v-container>
 		<?php $this->load->view('_components/front/header'); ?>
 		<section class="text-center home-slider-content">
@@ -27,9 +27,9 @@
 			</v-overlay>
 		</section>
 	</v-container>
-</v-content>
+</v-main>
 
-<v-content class="home-device" id="device">
+<v-main class="home-device" id="device">
 	<v-container>
 		<v-row class="text-center">
 			<v-col cols="12">
@@ -42,9 +42,9 @@
 			</v-col>
 		</v-row>
 	</v-container>
-</v-content>
+</v-main>
 
-<v-content class="home-app" id="apps">
+<v-main class="home-app" id="apps">
 	<v-container>
 		<v-row class="text-center">
 			<v-col cols="12">
@@ -135,9 +135,9 @@
 			</v-col>
 		</v-row>
 	</v-container>
-</v-content>
+</v-main>
 
-<v-content class="home-blog">
+<v-main class="home-blog">
 	<v-container>
 		<v-row class="text-center">
 			<v-col cols="12">
@@ -169,9 +169,9 @@
 
 		</v-row>
 	</v-container>
-</v-content>
+</v-main>
 
-<v-content class="home-ask">
+<v-main class="home-ask">
 	<v-container>
 		<v-row class="text-center">
 			<v-col cols="12" class="mt-12 mb-8">
@@ -239,9 +239,9 @@
 			</v-col>
 		</v-row>
 	</v-container>
-</v-content>
+</v-main>
 
-<v-content class="home-contact" id="help">
+<v-main class="home-contact" id="help">
 	<v-container>
 		<v-row class="text-center">
 			<v-col cols="12" class="mt-12 mb-8">
@@ -293,4 +293,4 @@
 			</v-col>
 		</v-row>
 	</v-container>
-</v-content>
+</v-main>

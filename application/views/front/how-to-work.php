@@ -1,10 +1,10 @@
-<v-content class="header-how-to-work">
+<v-main class="header-how-to-work">
 	<v-container>
 		<?php $this->load->view('_components/front/header'); ?>
 	</v-container>
-</v-content>
+</v-main>
 
-<v-content class="mt-10 mb-10">
+<v-main class="mt-10 mb-10">
 	<v-container>
 		<v-row>
 			<v-col cols="12" md="6" class="mt-12" data-aos="fade-up" data-aos-once="true">
@@ -21,11 +21,11 @@
 			</v-col>
 		</v-row>
 	</v-container>
-</v-content>
+</v-main>
 
 <v-divider></v-divider>
 
-<v-content class="mt-10 mb-10">
+<v-main class="mt-10 mb-10">
 	<v-container>
 		<v-row>
 			<v-col cols="12" md="6">
@@ -42,11 +42,11 @@
 			</v-col>
 		</v-row>
 	</v-container>
-</v-content>
+</v-main>
 
 <v-divider></v-divider>
 
-<v-content class="mt-10 mb-10">
+<v-main class="mt-10 mb-10">
 	<v-container>
 		<v-row>
 			<v-col cols="12" md="6" class="mt-12" data-aos="fade-up" data-aos-once="true">
@@ -63,4 +63,4 @@
 			</v-col>
 		</v-row>
 	</v-container>
-</v-content>
+</v-main>

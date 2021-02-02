@@ -22,7 +22,7 @@
 
 	<div id="app">
 		<v-app class="body">
-			<v-content>
+			<v-main>
 				<?php $this->load->view('_components/front/slide-left'); ?>
 		      	<?php $this->load->view('front/'.$section); ?>
 		      	<?php $this->load->view('_components/front/footer'); ?>
@@ -32,7 +32,7 @@
 				<v-btn href="https://wa.me/50766865816" target="_blank" rel="noopener" class="btn-whatsapp" fab dark fixed bottom right color="green">
 				    <v-icon>mdi-whatsapp</v-icon>
 				</v-btn>
-			</v-content>
+			</v-main>
 	    </v-app>
 	</div>
 

@@ -1,10 +1,10 @@
-<v-content class="header-channel">
+<v-main class="header-channel">
 	<v-container>
 		<?php $this->load->view('_components/front/header'); ?>
 	</v-container>
-</v-content>
+</v-main>
 
-<v-content class="mt-12 mb-12">
+<v-main class="mt-12 mb-12">
 	<v-container>
 		<v-row>
 			<?php foreach ($zones as $last): ?>
@@ -45,5 +45,5 @@
 			<?php endforeach ?>
 		</v-row>
 	</v-container>
-</v-content>
+</v-main>
 

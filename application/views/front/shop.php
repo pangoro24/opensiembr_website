@@ -1,10 +1,10 @@
-<v-content class="header-shop">
+<v-main class="header-shop">
 	<v-container>
 		<?php $this->load->view('_components/front/header'); ?>
 	</v-container>
-</v-content>
+</v-main>
 
-<v-content class="mt-12 mb-12">
+<v-main class="mt-12 mb-12">
 	<v-container>
 		<v-row>
 			<v-col cols="12" md="3">
@@ -42,4 +42,4 @@
 			</v-col>
 		</v-row>
 	</v-container>
-</v-content>
+</v-main>

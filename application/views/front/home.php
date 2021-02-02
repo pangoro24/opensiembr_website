@@ -2,8 +2,8 @@
 	<v-container>
 		<?php $this->load->view('_components/front/header'); ?>
 		<section class="text-center home-slider-content">
-			<h1 data-aos="flip-up">Bienvenido a Open Siembro</h1>
-			<p data-aos="flip-up">Sistema inteligente para control de riego y monitoreo de siembro</p>
+			<h1 data-aos="flip-up">Bienvenido a openSiembro</h1>
+			<p data-aos="flip-up">Controlador inteligente de monitoreo y riego automatizado de cultivos</p>
 			<v-btn data-aos="fade" class="mx-2" fab dark large color="red" @click="overlay = !overlay">
 			  	<v-icon dark>mdi-play</v-icon>
 			</v-btn>
@@ -33,7 +33,7 @@
 	<v-container>
 		<v-row class="text-center">
 			<v-col cols="12">
-				<h2 data-aos="fade-up" data-aos-once="true">NUESTRO DISPOSITIVO</h2>
+				<h2 data-aos="fade-up" data-aos-once="true">Nuestra tecnología</h2>
 			</v-col>
 		</v-row>
 		<v-row>
@@ -48,7 +48,7 @@
 	<v-container>
 		<v-row class="text-center">
 			<v-col cols="12">
-				<h2 data-aos="fade-up" data-aos-delay="200" data-aos-once="true">BENEFICIOS DEL SISTEMA OPEN SIEMBRO</h2>
+				<h2 data-aos="fade-up" data-aos-delay="200" data-aos-once="true">Beneficios del sistema openSiembro</h2>
 			</v-col>
 		</v-row>
 		<v-row>
@@ -58,7 +58,7 @@
 						<v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3">
 							<v-card-text class="text-right">
 								<v-icon size="34" :color="hover ? 'blue': '' ">mdi-bullseye-arrow</v-icon>
-								<h3 :class="hover ? 'blue--text' : '' ">Todo bajo control desde cualquier parte y en cualquier todo momento</h3>
+								<h3 :class="hover ? 'blue--text' : '' ">Monitoreo 24/7 usando sensores de humedad de suelo y/o sensores ambientales</h3>
 							</v-card-text>
 						</v-card>
 					</div>
@@ -84,7 +84,7 @@
 					    <v-card-text class="text-right">
 					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-cellphone-link</v-icon>
 					    	<h3 :class="hover ? 'blue--text' : '' ">
-								Adaptable. Puede funcionar con internet wifi, 3g o Sigfox dependiendo de la ubicación de tu cultivo.
+								Funciona sin internet y con energía solar
 							</h3>
 					    </v-card-text>
 				    </v-card>
@@ -101,7 +101,7 @@
 					    <v-card-text class="text-left">
 					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-file-document-box-check-outline</v-icon>
 					    	<h3 :class="hover ? 'blue--text' : '' ">
-								Amplia información de diferentes tipos de plantas
+								Intuitiva y amigable para el usuario
 							</h3>
 					    </v-card-text>
 				    </v-card>
@@ -110,7 +110,7 @@
 				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3" @mouseover="hoverTest(6)" @mouseleave="leaveTest(6)">
 					    <v-card-text class="text-left">
 					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-numeric-0-circle-outline</v-icon>
-					    	<h3 :class="hover ? 'blue--text' : '' ">100% Gratuita</h3>
+					    	<h3 :class="hover ? 'blue--text' : '' ">Permite programar riegos y llevar registro de tus zonas de cultivo</h3>
 					    </v-card-text>
 				    </v-card>
 				</v-hover>
@@ -118,7 +118,7 @@
 				    <v-card :elevation="hover ? 6 : 2" class="mx-auto mb-3" @mouseover="hoverTest(7)" @mouseleave="leaveTest(7)">
 					    <v-card-text class="text-left">
 					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-gesture-spread</v-icon>
-					    	<h3 :class="hover ? 'blue--text' : '' ">Intuitiva y amigable para el usuario</h3>
+					    	<h3 :class="hover ? 'blue--text' : '' ">App gratuita</h3>
 					    </v-card-text>
 				    </v-card>
 				</v-hover>
@@ -127,7 +127,7 @@
 					    <v-card-text class="text-left">
 					    	<v-icon size="34" :color="hover ? 'blue' : '' ">mdi-math-compass</v-icon>
 					    	<h3 :class="hover ? 'blue--text' : '' ">
-								Personalizable al tipo de cultivo que siembras y al sistema de riego que usas
+								Información de vegetales estudiados en nuestra parcela experimental
 							</h3>
 					    </v-card-text>
 				    </v-card>
@@ -190,31 +190,31 @@
 				    <v-expansion-panel>
 				        <v-expansion-panel-header>¿Para quién es?</v-expansion-panel-header>
 				        <v-expansion-panel-content>
-				            Nuestros clientes son agricultores de pequeña, mediana y grande escala y personas que desean incursionar en el sector agrícola sin previa experiencia.
+				            Nuestros usuarios son agricultores de pequeña, mediana y grande escala y personas que desean incursionar en el sector agrícola sin previa experiencia.
 				        </v-expansion-panel-content>
 				    </v-expansion-panel>
 				    <v-expansion-panel>
-				        <v-expansion-panel-header>¿Es la app totalmente gratuita?</v-expansion-panel-header>
+				        <v-expansion-panel-header>¿Es la aplicación móvil gratuita?</v-expansion-panel-header>
 				        <v-expansion-panel-content>
-				            Ofreceremos la app sin costo alguno con el fin de apoyar al agricultor para obtener un cultivo eficiente.
+				            Sí. Ofreceremos la app sin costo alguno.
 				        </v-expansion-panel-content>
 				    </v-expansion-panel>
 				    <v-expansion-panel>
 				        <v-expansion-panel-header>¿El dispositivo necesita internet para funcionar?</v-expansion-panel-header>
 				        <v-expansion-panel-content>
-				            No propiamente. El dispositivo puede ejecutar sus tareas independiente de si está o no conectado al internet. El internet es uno de los medios para transmitir los datos a la app pero contamos con medios alternativos de transferencia de datos.
+				            No. El dispositivo puede ejecutar sus tareas independiente de si está o no conectado al internet.
 				        </v-expansion-panel-content>
 				    </v-expansion-panel>
 				    <v-expansion-panel>
-				        <v-expansion-panel-header>¿Tienen un local físico?</v-expansion-panel-header>
+				        <v-expansion-panel-header>¿Cuánto vale el controlador?</v-expansion-panel-header>
 				        <v-expansion-panel-content>
-				            open Siembro es una tienda 100% online. Realizamos envíos a nivel nacional por medio de agencias de envíos.
+				            Tenemos modelos desde 200 balboas y si en 1 mes no te convence, tienes garantía de reembolso. 
 				        </v-expansion-panel-content>
 				    </v-expansion-panel>
 					<v-expansion-panel>
 				        <v-expansion-panel-header>¿Dónde puedo comprar el dispositivo?</v-expansion-panel-header>
 				        <v-expansion-panel-content>
-				            Puede obtener el dispositivo  por medio de nuestra página web y nos puede contactar a través de nuestro email, ventas@opensiembro.com y redes sociales.
+				            Puede obtener el dispositivo por medio de nuestra página web y nos puede contactar a través de nuestro email, info@opensiembro.com y redes sociales (instragram y facebook).
 				        </v-expansion-panel-content>
 				    </v-expansion-panel>
 					<v-expansion-panel>
@@ -233,12 +233,6 @@
 				        <v-expansion-panel-header>¿Cuál es el tiempo de entrega?</v-expansion-panel-header>
 				        <v-expansion-panel-content>
 				            Una vez se confirma el pago, lo contactaremos para definir el tiempo de envío dependiendo de la cantidad de dispositivos solicitados.
-				        </v-expansion-panel-content>
-				    </v-expansion-panel>
-					<v-expansion-panel>
-				        <v-expansion-panel-header>¿Aceptan devolución?</v-expansion-panel-header>
-				        <v-expansion-panel-content>
-				            Se aceptan cambios por daños de fábrica y se envía un nuevo dispositivo.
 				        </v-expansion-panel-content>
 				    </v-expansion-panel>
 				</v-expansion-panels>
